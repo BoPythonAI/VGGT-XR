@@ -1,0 +1,3149 @@
+[
+  {
+    "run": "cubemap",
+    "config": {
+      "input": "/root/autodl-tmp/vggt-xr/data/analytic_room",
+      "output": "/root/autodl-tmp/vggt-xr/outputs/cubemap",
+      "panorama": true,
+      "projection": "cubemap",
+      "constrain_poses": false,
+      "filter": "confidence",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "mask_black_background": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000063180923462,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 2075,
+      "finite_points": 2032128,
+      "retained_before_voxel": 1320430,
+      "exported_points": 30000,
+      "voxel_size": 0.005004872875027398,
+      "cross_view": [],
+      "black_backdrop_mask": false
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.8617585619573453,
+        "relative_translation_rmse": 0.4648450117201075,
+        "rotation_error_deg_mean": 93.81755797964014,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 18
+      },
+      "depth_all": {
+        "scale": 3.55696964263916,
+        "rmse": 0.36217963695526123,
+        "absrel": 0.13492238521575928,
+        "valid_pixels": 2032128,
+        "coverage": 1.0,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "depth_retained": {
+        "scale": 3.55696964263916,
+        "rmse": 0.38032299280166626,
+        "absrel": 0.12180747091770172,
+        "valid_pixels": 1320430,
+        "coverage": 0.6497769825522802,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 10.535546887665987,
+        "peak_vram_gb": 0.10365438461303711,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.07185175269842148,
+            "loss": 0.1314733624458313
+          },
+          {
+            "step": 100,
+            "l1": 0.10641899704933167,
+            "loss": 0.1569894254207611
+          },
+          {
+            "step": 200,
+            "l1": 0.10457373410463333,
+            "loss": 0.15814781188964844
+          },
+          {
+            "step": 300,
+            "l1": 0.10566385090351105,
+            "loss": 0.14024722576141357
+          },
+          {
+            "step": 400,
+            "l1": 0.12221717089414597,
+            "loss": 0.15083110332489014
+          },
+          {
+            "step": 500,
+            "l1": 0.02860378473997116,
+            "loss": 0.08226466923952103
+          },
+          {
+            "step": 600,
+            "l1": 0.025626836344599724,
+            "loss": 0.07706507295370102
+          },
+          {
+            "step": 700,
+            "l1": 0.11063272505998611,
+            "loss": 0.18520231544971466
+          },
+          {
+            "step": 800,
+            "l1": 0.1037009134888649,
+            "loss": 0.1772395223379135
+          },
+          {
+            "step": 900,
+            "l1": 0.06267883628606796,
+            "loss": 0.09829133749008179
+          },
+          {
+            "step": 1000,
+            "l1": 0.02558370679616928,
+            "loss": 0.07259736955165863
+          },
+          {
+            "step": 1100,
+            "l1": 0.09593699127435684,
+            "loss": 0.16803573071956635
+          },
+          {
+            "step": 1200,
+            "l1": 0.09660656750202179,
+            "loss": 0.16950729489326477
+          },
+          {
+            "step": 1300,
+            "l1": 0.09488529711961746,
+            "loss": 0.16657257080078125
+          },
+          {
+            "step": 1400,
+            "l1": 0.07542431354522705,
+            "loss": 0.1094614639878273
+          },
+          {
+            "step": 1499,
+            "l1": 0.11190427094697952,
+            "loss": 0.1810818910598755
+          }
+        ],
+        "heldout": {
+          "count": 10,
+          "psnr_mean": 6.467612600326538,
+          "ssim_mean": 0.008121973639936187,
+          "lpips_squeeze_mean": 0.8406051516532898,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 6.730003356933594,
+              "ssim": 0.008241426199674606,
+              "lpips_squeeze": 0.8330827951431274
+            },
+            {
+              "view": 1,
+              "psnr": 6.2287492752075195,
+              "ssim": 0.0006647268892265856,
+              "lpips_squeeze": 0.8750140070915222
+            },
+            {
+              "view": 2,
+              "psnr": 6.155780792236328,
+              "ssim": 0.002200774382799864,
+              "lpips_squeeze": 0.8959260582923889
+            },
+            {
+              "view": 3,
+              "psnr": 6.645669460296631,
+              "ssim": 0.018808381631970406,
+              "lpips_squeeze": 0.8396673202514648
+            },
+            {
+              "view": 4,
+              "psnr": 6.983455657958984,
+              "ssim": 0.023242544382810593,
+              "lpips_squeeze": 0.7756994366645813
+            },
+            {
+              "view": 5,
+              "psnr": 6.329432010650635,
+              "ssim": 0.014037370681762695,
+              "lpips_squeeze": 0.8385558128356934
+            },
+            {
+              "view": 6,
+              "psnr": 6.224480628967285,
+              "ssim": 0.0043271505273878574,
+              "lpips_squeeze": 0.878507137298584
+            },
+            {
+              "view": 7,
+              "psnr": 6.478207588195801,
+              "ssim": 0.00838234182447195,
+              "lpips_squeeze": 0.8712577223777771
+            },
+            {
+              "view": 8,
+              "psnr": 7.273884296417236,
+              "ssim": 0.0008798081544227898,
+              "lpips_squeeze": 0.6177986264228821
+            },
+            {
+              "view": 9,
+              "psnr": 5.626462936401367,
+              "ssim": 0.00043521172483451664,
+              "lpips_squeeze": 0.9805426001548767
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3316.0690254095434,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "856742621a8dfb0e028f26a6868d7dde3532b0bb13b7ed32febeb2abd202e8f2"
+  },
+  {
+    "run": "erp_direct",
+    "config": {
+      "input": "/root/autodl-tmp/vggt-xr/data/analytic_room",
+      "output": "/root/autodl-tmp/vggt-xr/outputs/erp_direct",
+      "panorama": true,
+      "projection": "direct",
+      "constrain_poses": false,
+      "filter": "raw",
+      "include_poles": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "raw",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": null,
+      "finite_points": 338688,
+      "retained_before_voxel": 338688,
+      "exported_points": 30000,
+      "voxel_size": 0.004428061712929128,
+      "cross_view": []
+    },
+    "summary": {
+      "note": "ERP has no pinhole GT correspondence. Direct ERP geometry has no valid pinhole depth/pose metric; report only runtime and training appearance.",
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 13.633674625307322,
+        "peak_vram_gb": 0.08245706558227539,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.11990891396999359,
+            "loss": 0.22789257764816284
+          },
+          {
+            "step": 100,
+            "l1": 0.09634130448102951,
+            "loss": 0.17318110167980194
+          },
+          {
+            "step": 200,
+            "l1": 0.07354862242937088,
+            "loss": 0.1295870691537857
+          },
+          {
+            "step": 300,
+            "l1": 0.09304150938987732,
+            "loss": 0.16078972816467285
+          },
+          {
+            "step": 400,
+            "l1": 0.0688721239566803,
+            "loss": 0.11617789417505264
+          },
+          {
+            "step": 500,
+            "l1": 0.06867233663797379,
+            "loss": 0.11443093419075012
+          },
+          {
+            "step": 600,
+            "l1": 0.08628425002098083,
+            "loss": 0.14452457427978516
+          },
+          {
+            "step": 700,
+            "l1": 0.032873935997486115,
+            "loss": 0.04898630827665329
+          },
+          {
+            "step": 800,
+            "l1": 0.029717516154050827,
+            "loss": 0.04368293285369873
+          },
+          {
+            "step": 900,
+            "l1": 0.0271457526832819,
+            "loss": 0.03933834657073021
+          },
+          {
+            "step": 1000,
+            "l1": 0.08574523776769638,
+            "loss": 0.1424894779920578
+          },
+          {
+            "step": 1100,
+            "l1": 0.06853307038545609,
+            "loss": 0.11002679169178009
+          },
+          {
+            "step": 1200,
+            "l1": 0.06663823872804642,
+            "loss": 0.10550132393836975
+          },
+          {
+            "step": 1300,
+            "l1": 0.019784467294812202,
+            "loss": 0.027788713574409485
+          },
+          {
+            "step": 1400,
+            "l1": 0.08319779485464096,
+            "loss": 0.13639302551746368
+          },
+          {
+            "step": 1499,
+            "l1": 0.06606069207191467,
+            "loss": 0.10305611789226532
+          }
+        ],
+        "server_raster_fps": 3574.5544514902217,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "5f69740f9f307f2258df6037976a947ad7cf3bed8fda0319c0742e7b9378802c"
+  },
+  {
+    "run": "kitchen",
+    "config": {
+      "input": "/root/autodl-tmp/vggt-xr/data/vggt_kitchen",
+      "output": "/root/autodl-tmp/vggt-xr/outputs/kitchen",
+      "panorama": false,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "confidence",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "mask_black_background": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 60000,
+      "steps": 3000,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 1271372,
+      "finite_points": 2709504,
+      "retained_before_voxel": 1438132,
+      "exported_points": 60000,
+      "voxel_size": 0.005742854045880535,
+      "cross_view": [],
+      "black_backdrop_mask": false
+    },
+    "summary": {
+      "gaussian": {
+        "steps": 3000,
+        "gaussian_count": 60000,
+        "train_seconds": 17.536149326711893,
+        "peak_vram_gb": 0.11879873275756836,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.3255510628223419,
+            "loss": 0.4043388366699219
+          },
+          {
+            "step": 100,
+            "l1": 0.27197718620300293,
+            "loss": 0.3292960524559021
+          },
+          {
+            "step": 200,
+            "l1": 0.24215395748615265,
+            "loss": 0.3022599220275879
+          },
+          {
+            "step": 300,
+            "l1": 0.19305816292762756,
+            "loss": 0.2501734495162964
+          },
+          {
+            "step": 400,
+            "l1": 0.14780795574188232,
+            "loss": 0.21463389694690704
+          },
+          {
+            "step": 500,
+            "l1": 0.1355188488960266,
+            "loss": 0.1902267038822174
+          },
+          {
+            "step": 600,
+            "l1": 0.13450033962726593,
+            "loss": 0.19739782810211182
+          },
+          {
+            "step": 700,
+            "l1": 0.1540307104587555,
+            "loss": 0.21342292428016663
+          },
+          {
+            "step": 800,
+            "l1": 0.11124633997678757,
+            "loss": 0.1673119068145752
+          },
+          {
+            "step": 900,
+            "l1": 0.10540308058261871,
+            "loss": 0.1766240894794464
+          },
+          {
+            "step": 1000,
+            "l1": 0.143086776137352,
+            "loss": 0.21497446298599243
+          },
+          {
+            "step": 1100,
+            "l1": 0.1491379737854004,
+            "loss": 0.2204899787902832
+          },
+          {
+            "step": 1200,
+            "l1": 0.10068824142217636,
+            "loss": 0.16432181000709534
+          },
+          {
+            "step": 1300,
+            "l1": 0.0967215895652771,
+            "loss": 0.15757814049720764
+          },
+          {
+            "step": 1400,
+            "l1": 0.12826022505760193,
+            "loss": 0.19923800230026245
+          },
+          {
+            "step": 1500,
+            "l1": 0.12620288133621216,
+            "loss": 0.17897334694862366
+          },
+          {
+            "step": 1600,
+            "l1": 0.15068989992141724,
+            "loss": 0.21417227387428284
+          },
+          {
+            "step": 1700,
+            "l1": 0.1416531205177307,
+            "loss": 0.21265140175819397
+          },
+          {
+            "step": 1800,
+            "l1": 0.08408036828041077,
+            "loss": 0.13553524017333984
+          },
+          {
+            "step": 1900,
+            "l1": 0.0781870186328888,
+            "loss": 0.12982672452926636
+          },
+          {
+            "step": 2000,
+            "l1": 0.08905896544456482,
+            "loss": 0.14373734593391418
+          },
+          {
+            "step": 2100,
+            "l1": 0.1445377916097641,
+            "loss": 0.20759809017181396
+          },
+          {
+            "step": 2200,
+            "l1": 0.0861743614077568,
+            "loss": 0.14789628982543945
+          },
+          {
+            "step": 2300,
+            "l1": 0.11921948939561844,
+            "loss": 0.18523138761520386
+          },
+          {
+            "step": 2400,
+            "l1": 0.07363543659448624,
+            "loss": 0.12293872237205505
+          },
+          {
+            "step": 2500,
+            "l1": 0.07620181143283844,
+            "loss": 0.142330601811409
+          },
+          {
+            "step": 2600,
+            "l1": 0.11669617891311646,
+            "loss": 0.1781643033027649
+          },
+          {
+            "step": 2700,
+            "l1": 0.10444952547550201,
+            "loss": 0.15349538624286652
+          },
+          {
+            "step": 2800,
+            "l1": 0.10403479635715485,
+            "loss": 0.15329806506633759
+          },
+          {
+            "step": 2900,
+            "l1": 0.07607360184192657,
+            "loss": 0.13113196194171906
+          },
+          {
+            "step": 2999,
+            "l1": 0.0760117694735527,
+            "loss": 0.13231557607650757
+          }
+        ],
+        "server_raster_fps": 3070.0498325419812,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 14881530,
+    "gaussian_sha256": "51f502021ac2da87214dc54782514d266524b084fd6a21e33acd26aad54c8993"
+  },
+  {
+    "run": "nerf_confidence",
+    "config": {
+      "input": "data/tiny_nerf",
+      "output": "outputs/nerf_confidence",
+      "panorama": false,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "confidence",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 1512478,
+      "finite_points": 2596608,
+      "retained_before_voxel": 1084130,
+      "exported_points": 30000,
+      "voxel_size": 0.05769968840951573,
+      "cross_view": []
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.3000711503746921,
+        "relative_translation_rmse": 0.3630771585335715,
+        "rotation_error_deg_mean": 4.444609322724017,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 23
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 11.196065172553062,
+        "peak_vram_gb": 0.10674667358398438,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.21247510612010956,
+            "loss": 0.34431880712509155
+          },
+          {
+            "step": 100,
+            "l1": 0.1047971099615097,
+            "loss": 0.15348684787750244
+          },
+          {
+            "step": 200,
+            "l1": 0.08327311277389526,
+            "loss": 0.1404132843017578
+          },
+          {
+            "step": 300,
+            "l1": 0.09161785244941711,
+            "loss": 0.14559341967105865
+          },
+          {
+            "step": 400,
+            "l1": 0.10902715474367142,
+            "loss": 0.16132895648479462
+          },
+          {
+            "step": 500,
+            "l1": 0.049825817346572876,
+            "loss": 0.08895903825759888
+          },
+          {
+            "step": 600,
+            "l1": 0.09375856816768646,
+            "loss": 0.1496305763721466
+          },
+          {
+            "step": 700,
+            "l1": 0.07928907871246338,
+            "loss": 0.1269371211528778
+          },
+          {
+            "step": 800,
+            "l1": 0.11679298430681229,
+            "loss": 0.15170201659202576
+          },
+          {
+            "step": 900,
+            "l1": 0.07906784862279892,
+            "loss": 0.12704923748970032
+          },
+          {
+            "step": 1000,
+            "l1": 0.10300169140100479,
+            "loss": 0.1573721021413803
+          },
+          {
+            "step": 1100,
+            "l1": 0.0781048834323883,
+            "loss": 0.12684983015060425
+          },
+          {
+            "step": 1200,
+            "l1": 0.0994967669248581,
+            "loss": 0.15735554695129395
+          },
+          {
+            "step": 1300,
+            "l1": 0.08866964280605316,
+            "loss": 0.14466172456741333
+          },
+          {
+            "step": 1400,
+            "l1": 0.09040071070194244,
+            "loss": 0.14733995497226715
+          },
+          {
+            "step": 1499,
+            "l1": 0.08731872588396072,
+            "loss": 0.12745711207389832
+          }
+        ],
+        "heldout": {
+          "count": 5,
+          "psnr_mean": 12.2979097366333,
+          "ssim_mean": 0.6573673129081726,
+          "lpips_squeeze_mean": 0.4023855745792389,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 13.656648635864258,
+              "ssim": 0.6754414439201355,
+              "lpips_squeeze": 0.4035176634788513
+            },
+            {
+              "view": 1,
+              "psnr": 11.392302513122559,
+              "ssim": 0.6369049549102783,
+              "lpips_squeeze": 0.4187096357345581
+            },
+            {
+              "view": 2,
+              "psnr": 13.416664123535156,
+              "ssim": 0.6648356318473816,
+              "lpips_squeeze": 0.3785402476787567
+            },
+            {
+              "view": 3,
+              "psnr": 10.036558151245117,
+              "ssim": 0.6760480999946594,
+              "lpips_squeeze": 0.3807821571826935
+            },
+            {
+              "view": 4,
+              "psnr": 12.987375259399414,
+              "ssim": 0.6336064338684082,
+              "lpips_squeeze": 0.43037816882133484
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3667.054853206036,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "fc26716ab0354d52c499b69bd8e62b979c3bcaa5ebb4884b7390794cfd900897"
+  },
+  {
+    "run": "nerf_confidence_masked",
+    "config": {
+      "input": "data/tiny_nerf",
+      "output": "outputs/nerf_confidence_masked",
+      "panorama": false,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "confidence",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "mask_black_background": true,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000648498535156,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 147,
+      "finite_points": 860273,
+      "retained_before_voxel": 559046,
+      "exported_points": 30000,
+      "voxel_size": 0.001624665340832328,
+      "cross_view": [],
+      "black_backdrop_mask": true
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.3000711503746921,
+        "relative_translation_rmse": 0.3630771585335715,
+        "rotation_error_deg_mean": 4.444609322724017,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 23
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 13.744114503264427,
+        "peak_vram_gb": 0.10813713073730469,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.16076205670833588,
+            "loss": 0.2268301546573639
+          },
+          {
+            "step": 100,
+            "l1": 0.1089378371834755,
+            "loss": 0.16888178884983063
+          },
+          {
+            "step": 200,
+            "l1": 0.0899566188454628,
+            "loss": 0.1658102571964264
+          },
+          {
+            "step": 300,
+            "l1": 0.07758268713951111,
+            "loss": 0.13517311215400696
+          },
+          {
+            "step": 400,
+            "l1": 0.09226978570222855,
+            "loss": 0.1412886083126068
+          },
+          {
+            "step": 500,
+            "l1": 0.04519551247358322,
+            "loss": 0.08887968957424164
+          },
+          {
+            "step": 600,
+            "l1": 0.07447353005409241,
+            "loss": 0.1232566237449646
+          },
+          {
+            "step": 700,
+            "l1": 0.05924379080533981,
+            "loss": 0.10343609750270844
+          },
+          {
+            "step": 800,
+            "l1": 0.11571712046861649,
+            "loss": 0.15741129219532013
+          },
+          {
+            "step": 900,
+            "l1": 0.05517131835222244,
+            "loss": 0.09568008780479431
+          },
+          {
+            "step": 1000,
+            "l1": 0.07592030614614487,
+            "loss": 0.11790439486503601
+          },
+          {
+            "step": 1100,
+            "l1": 0.059827934950590134,
+            "loss": 0.0962117537856102
+          },
+          {
+            "step": 1200,
+            "l1": 0.06338709592819214,
+            "loss": 0.10280834138393402
+          },
+          {
+            "step": 1300,
+            "l1": 0.06317108869552612,
+            "loss": 0.10297910124063492
+          },
+          {
+            "step": 1400,
+            "l1": 0.06406194716691971,
+            "loss": 0.10463814437389374
+          },
+          {
+            "step": 1499,
+            "l1": 0.05247555300593376,
+            "loss": 0.0854293555021286
+          }
+        ],
+        "heldout": {
+          "count": 5,
+          "psnr_mean": 12.142667007446288,
+          "ssim_mean": 0.649172055721283,
+          "lpips_squeeze_mean": 0.31759229898452757,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 13.555436134338379,
+              "ssim": 0.6751093864440918,
+              "lpips_squeeze": 0.30330097675323486
+            },
+            {
+              "view": 1,
+              "psnr": 11.295797348022461,
+              "ssim": 0.6324834823608398,
+              "lpips_squeeze": 0.3228365480899811
+            },
+            {
+              "view": 2,
+              "psnr": 13.207632064819336,
+              "ssim": 0.6527227759361267,
+              "lpips_squeeze": 0.2984425723552704
+            },
+            {
+              "view": 3,
+              "psnr": 9.949729919433594,
+              "ssim": 0.6689413785934448,
+              "lpips_squeeze": 0.3353121280670166
+            },
+            {
+              "view": 4,
+              "psnr": 12.704739570617676,
+              "ssim": 0.6166032552719116,
+              "lpips_squeeze": 0.328069269657135
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3412.1653303693956,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "4271df2fb80f8d94a97790ecfa4599a9b3a2bc0e56ff13a382e607ef58c332de"
+  },
+  {
+    "run": "nerf_consistency",
+    "config": {
+      "input": "data/tiny_nerf",
+      "output": "outputs/nerf_consistency",
+      "panorama": false,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "consistency",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "consistency",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 1512478,
+      "finite_points": 2596608,
+      "retained_before_voxel": 839752,
+      "exported_points": 30000,
+      "voxel_size": 0.001865636582115777,
+      "cross_view": [
+        {
+          "view": 0,
+          "candidates": 29703,
+          "supported": 28844,
+          "no_overlap": 36
+        },
+        {
+          "view": 1,
+          "candidates": 43560,
+          "supported": 33986,
+          "no_overlap": 6094
+        },
+        {
+          "view": 2,
+          "candidates": 48701,
+          "supported": 37742,
+          "no_overlap": 5846
+        },
+        {
+          "view": 3,
+          "candidates": 49474,
+          "supported": 31934,
+          "no_overlap": 10431
+        },
+        {
+          "view": 4,
+          "candidates": 50361,
+          "supported": 38360,
+          "no_overlap": 1245
+        },
+        {
+          "view": 5,
+          "candidates": 52740,
+          "supported": 41070,
+          "no_overlap": 8581
+        },
+        {
+          "view": 6,
+          "candidates": 39489,
+          "supported": 37081,
+          "no_overlap": 223
+        },
+        {
+          "view": 7,
+          "candidates": 53829,
+          "supported": 36723,
+          "no_overlap": 8193
+        },
+        {
+          "view": 8,
+          "candidates": 49362,
+          "supported": 40811,
+          "no_overlap": 3856
+        },
+        {
+          "view": 9,
+          "candidates": 26445,
+          "supported": 26348,
+          "no_overlap": 77
+        },
+        {
+          "view": 10,
+          "candidates": 50834,
+          "supported": 41920,
+          "no_overlap": 5248
+        },
+        {
+          "view": 11,
+          "candidates": 48836,
+          "supported": 38923,
+          "no_overlap": 2280
+        },
+        {
+          "view": 12,
+          "candidates": 53278,
+          "supported": 41624,
+          "no_overlap": 9496
+        },
+        {
+          "view": 13,
+          "candidates": 51884,
+          "supported": 35647,
+          "no_overlap": 9599
+        },
+        {
+          "view": 14,
+          "candidates": 50300,
+          "supported": 40767,
+          "no_overlap": 4025
+        },
+        {
+          "view": 15,
+          "candidates": 50249,
+          "supported": 41236,
+          "no_overlap": 1887
+        },
+        {
+          "view": 16,
+          "candidates": 56801,
+          "supported": 41263,
+          "no_overlap": 4513
+        },
+        {
+          "view": 17,
+          "candidates": 52191,
+          "supported": 36751,
+          "no_overlap": 6497
+        },
+        {
+          "view": 18,
+          "candidates": 47224,
+          "supported": 39471,
+          "no_overlap": 1325
+        },
+        {
+          "view": 19,
+          "candidates": 40128,
+          "supported": 30265,
+          "no_overlap": 98
+        },
+        {
+          "view": 20,
+          "candidates": 48957,
+          "supported": 31469,
+          "no_overlap": 14329
+        },
+        {
+          "view": 21,
+          "candidates": 49147,
+          "supported": 36695,
+          "no_overlap": 473
+        },
+        {
+          "view": 22,
+          "candidates": 40637,
+          "supported": 30822,
+          "no_overlap": 6786
+        }
+      ]
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.3000711503746921,
+        "relative_translation_rmse": 0.3630771585335715,
+        "rotation_error_deg_mean": 4.444609322724017,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 23
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 7.606920477002859,
+        "peak_vram_gb": 0.10826635360717773,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.18874679505825043,
+            "loss": 0.2701527178287506
+          },
+          {
+            "step": 100,
+            "l1": 0.1066296398639679,
+            "loss": 0.17078688740730286
+          },
+          {
+            "step": 200,
+            "l1": 0.07668178528547287,
+            "loss": 0.1469132900238037
+          },
+          {
+            "step": 300,
+            "l1": 0.08341197669506073,
+            "loss": 0.1414336860179901
+          },
+          {
+            "step": 400,
+            "l1": 0.08553989976644516,
+            "loss": 0.13292118906974792
+          },
+          {
+            "step": 500,
+            "l1": 0.037653274834156036,
+            "loss": 0.07179348915815353
+          },
+          {
+            "step": 600,
+            "l1": 0.062474098056554794,
+            "loss": 0.10715913772583008
+          },
+          {
+            "step": 700,
+            "l1": 0.06065697595477104,
+            "loss": 0.1032424196600914
+          },
+          {
+            "step": 800,
+            "l1": 0.040748342871665955,
+            "loss": 0.06120087951421738
+          },
+          {
+            "step": 900,
+            "l1": 0.05548836663365364,
+            "loss": 0.09399794042110443
+          },
+          {
+            "step": 1000,
+            "l1": 0.07025598734617233,
+            "loss": 0.10842377692461014
+          },
+          {
+            "step": 1100,
+            "l1": 0.06199507787823677,
+            "loss": 0.0992758721113205
+          },
+          {
+            "step": 1200,
+            "l1": 0.05429098382592201,
+            "loss": 0.09095841646194458
+          },
+          {
+            "step": 1300,
+            "l1": 0.05425388738512993,
+            "loss": 0.09099532663822174
+          },
+          {
+            "step": 1400,
+            "l1": 0.055141083896160126,
+            "loss": 0.09268921613693237
+          },
+          {
+            "step": 1499,
+            "l1": 0.04515279829502106,
+            "loss": 0.07016171514987946
+          }
+        ],
+        "heldout": {
+          "count": 5,
+          "psnr_mean": 12.055037307739259,
+          "ssim_mean": 0.6435905575752259,
+          "lpips_squeeze_mean": 0.31941890716552734,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 13.392778396606445,
+              "ssim": 0.659665048122406,
+              "lpips_squeeze": 0.3067215383052826
+            },
+            {
+              "view": 1,
+              "psnr": 11.293489456176758,
+              "ssim": 0.6321897506713867,
+              "lpips_squeeze": 0.3212983012199402
+            },
+            {
+              "view": 2,
+              "psnr": 12.8780517578125,
+              "ssim": 0.6523333191871643,
+              "lpips_squeeze": 0.2991800904273987
+            },
+            {
+              "view": 3,
+              "psnr": 9.75514030456543,
+              "ssim": 0.6540645956993103,
+              "lpips_squeeze": 0.3464823067188263
+            },
+            {
+              "view": 4,
+              "psnr": 12.955726623535156,
+              "ssim": 0.6197000741958618,
+              "lpips_squeeze": 0.32341229915618896
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3298.8530257694383,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "64e3b22ce1e12a70060968729a0ca1672f84ce87ffa7b9e1e87039ecd6c1982c"
+  },
+  {
+    "run": "nerf_consistency_masked",
+    "config": {
+      "input": "data/tiny_nerf",
+      "output": "outputs/nerf_consistency_masked",
+      "panorama": false,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "consistency",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "mask_black_background": true,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "consistency",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000648498535156,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 147,
+      "finite_points": 860273,
+      "retained_before_voxel": 529718,
+      "exported_points": 30000,
+      "voxel_size": 0.00154813609691658,
+      "cross_view": [
+        {
+          "view": 0,
+          "candidates": 24406,
+          "supported": 22556,
+          "no_overlap": 0
+        },
+        {
+          "view": 1,
+          "candidates": 26032,
+          "supported": 24185,
+          "no_overlap": 0
+        },
+        {
+          "view": 2,
+          "candidates": 23791,
+          "supported": 23590,
+          "no_overlap": 0
+        },
+        {
+          "view": 3,
+          "candidates": 21177,
+          "supported": 20035,
+          "no_overlap": 47
+        },
+        {
+          "view": 4,
+          "candidates": 32578,
+          "supported": 30771,
+          "no_overlap": 117
+        },
+        {
+          "view": 5,
+          "candidates": 26572,
+          "supported": 26330,
+          "no_overlap": 101
+        },
+        {
+          "view": 6,
+          "candidates": 21362,
+          "supported": 20998,
+          "no_overlap": 0
+        },
+        {
+          "view": 7,
+          "candidates": 31779,
+          "supported": 27474,
+          "no_overlap": 551
+        },
+        {
+          "view": 8,
+          "candidates": 18664,
+          "supported": 18105,
+          "no_overlap": 0
+        },
+        {
+          "view": 9,
+          "candidates": 20473,
+          "supported": 20458,
+          "no_overlap": 0
+        },
+        {
+          "view": 10,
+          "candidates": 22983,
+          "supported": 22735,
+          "no_overlap": 0
+        },
+        {
+          "view": 11,
+          "candidates": 24251,
+          "supported": 24088,
+          "no_overlap": 0
+        },
+        {
+          "view": 12,
+          "candidates": 27360,
+          "supported": 27085,
+          "no_overlap": 3
+        },
+        {
+          "view": 13,
+          "candidates": 22293,
+          "supported": 22001,
+          "no_overlap": 1
+        },
+        {
+          "view": 14,
+          "candidates": 22839,
+          "supported": 22839,
+          "no_overlap": 0
+        },
+        {
+          "view": 15,
+          "candidates": 21564,
+          "supported": 21546,
+          "no_overlap": 0
+        },
+        {
+          "view": 16,
+          "candidates": 31731,
+          "supported": 30806,
+          "no_overlap": 0
+        },
+        {
+          "view": 17,
+          "candidates": 27194,
+          "supported": 23765,
+          "no_overlap": 12
+        },
+        {
+          "view": 18,
+          "candidates": 25129,
+          "supported": 24156,
+          "no_overlap": 0
+        },
+        {
+          "view": 19,
+          "candidates": 24932,
+          "supported": 21176,
+          "no_overlap": 0
+        },
+        {
+          "view": 20,
+          "candidates": 20403,
+          "supported": 20365,
+          "no_overlap": 0
+        },
+        {
+          "view": 21,
+          "candidates": 28707,
+          "supported": 23870,
+          "no_overlap": 0
+        },
+        {
+          "view": 22,
+          "candidates": 12826,
+          "supported": 10784,
+          "no_overlap": 193
+        }
+      ],
+      "black_backdrop_mask": true
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.3000711503746921,
+        "relative_translation_rmse": 0.3630771585335715,
+        "rotation_error_deg_mean": 4.444609322724017,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 23
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 12.05390964820981,
+        "peak_vram_gb": 0.10813570022583008,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.15005983412265778,
+            "loss": 0.21278828382492065
+          },
+          {
+            "step": 100,
+            "l1": 0.10522393882274628,
+            "loss": 0.16105708479881287
+          },
+          {
+            "step": 200,
+            "l1": 0.0872410237789154,
+            "loss": 0.15585646033287048
+          },
+          {
+            "step": 300,
+            "l1": 0.07652973383665085,
+            "loss": 0.12973977625370026
+          },
+          {
+            "step": 400,
+            "l1": 0.09043087810277939,
+            "loss": 0.13765983283519745
+          },
+          {
+            "step": 500,
+            "l1": 0.04549407586455345,
+            "loss": 0.08851353824138641
+          },
+          {
+            "step": 600,
+            "l1": 0.07637712359428406,
+            "loss": 0.1252831518650055
+          },
+          {
+            "step": 700,
+            "l1": 0.06362687796354294,
+            "loss": 0.10898815095424652
+          },
+          {
+            "step": 800,
+            "l1": 0.14096948504447937,
+            "loss": 0.18239445984363556
+          },
+          {
+            "step": 900,
+            "l1": 0.05886731296777725,
+            "loss": 0.09953071177005768
+          },
+          {
+            "step": 1000,
+            "l1": 0.07417505979537964,
+            "loss": 0.11477690935134888
+          },
+          {
+            "step": 1100,
+            "l1": 0.0639215037226677,
+            "loss": 0.10220570117235184
+          },
+          {
+            "step": 1200,
+            "l1": 0.06483174860477448,
+            "loss": 0.10499933362007141
+          },
+          {
+            "step": 1300,
+            "l1": 0.06474384665489197,
+            "loss": 0.1060720831155777
+          },
+          {
+            "step": 1400,
+            "l1": 0.06495650112628937,
+            "loss": 0.10613719373941422
+          },
+          {
+            "step": 1499,
+            "l1": 0.05627627298235893,
+            "loss": 0.08948540687561035
+          }
+        ],
+        "heldout": {
+          "count": 5,
+          "psnr_mean": 12.157513427734376,
+          "ssim_mean": 0.6499994039535523,
+          "lpips_squeeze_mean": 0.3152340054512024,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 13.594938278198242,
+              "ssim": 0.6781346201896667,
+              "lpips_squeeze": 0.29390811920166016
+            },
+            {
+              "view": 1,
+              "psnr": 11.230789184570312,
+              "ssim": 0.6297105550765991,
+              "lpips_squeeze": 0.32674166560173035
+            },
+            {
+              "view": 2,
+              "psnr": 13.206172943115234,
+              "ssim": 0.6535546183586121,
+              "lpips_squeeze": 0.2996498942375183
+            },
+            {
+              "view": 3,
+              "psnr": 10.002969741821289,
+              "ssim": 0.6723580360412598,
+              "lpips_squeeze": 0.32845962047576904
+            },
+            {
+              "view": 4,
+              "psnr": 12.752696990966797,
+              "ssim": 0.6162391901016235,
+              "lpips_squeeze": 0.3274107277393341
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3381.2957419187755,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "fbe9cf8b362c23dc2e7ec5dad7ddacea2e6683338979154009ba5a6a81c0ce6f"
+  },
+  {
+    "run": "nerf_raw",
+    "config": {
+      "input": "/root/autodl-tmp/vggt-xr/data/tiny_nerf",
+      "output": "/root/autodl-tmp/vggt-xr/outputs/nerf_raw",
+      "panorama": false,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "raw",
+      "include_poles": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "raw",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": null,
+      "finite_points": 2596608,
+      "retained_before_voxel": 2596608,
+      "exported_points": 30000,
+      "voxel_size": 0.045896140910113334,
+      "cross_view": []
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.3000711503746921,
+        "relative_translation_rmse": 0.3630771585335715,
+        "rotation_error_deg_mean": 4.444609322724017,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 23
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 13.76404495537281,
+        "peak_vram_gb": 0.10991907119750977,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.197758749127388,
+            "loss": 0.3132113218307495
+          },
+          {
+            "step": 100,
+            "l1": 0.12676264345645905,
+            "loss": 0.17022165656089783
+          },
+          {
+            "step": 200,
+            "l1": 0.12303359061479568,
+            "loss": 0.17743487656116486
+          },
+          {
+            "step": 300,
+            "l1": 0.10719094425439835,
+            "loss": 0.16093629598617554
+          },
+          {
+            "step": 400,
+            "l1": 0.10676831752061844,
+            "loss": 0.1552739441394806
+          },
+          {
+            "step": 500,
+            "l1": 0.05455981194972992,
+            "loss": 0.09223663806915283
+          },
+          {
+            "step": 600,
+            "l1": 0.09935428202152252,
+            "loss": 0.1561034619808197
+          },
+          {
+            "step": 700,
+            "l1": 0.08160241693258286,
+            "loss": 0.12910127639770508
+          },
+          {
+            "step": 800,
+            "l1": 0.1154424175620079,
+            "loss": 0.15105342864990234
+          },
+          {
+            "step": 900,
+            "l1": 0.08252354711294174,
+            "loss": 0.1300753355026245
+          },
+          {
+            "step": 1000,
+            "l1": 0.09812584519386292,
+            "loss": 0.14676028490066528
+          },
+          {
+            "step": 1100,
+            "l1": 0.0826835185289383,
+            "loss": 0.13141849637031555
+          },
+          {
+            "step": 1200,
+            "l1": 0.10197705775499344,
+            "loss": 0.157524973154068
+          },
+          {
+            "step": 1300,
+            "l1": 0.0955258458852768,
+            "loss": 0.15134602785110474
+          },
+          {
+            "step": 1400,
+            "l1": 0.09587371349334717,
+            "loss": 0.1538085639476776
+          },
+          {
+            "step": 1499,
+            "l1": 0.08241981267929077,
+            "loss": 0.1220572367310524
+          }
+        ],
+        "heldout": {
+          "count": 5,
+          "psnr_mean": 12.117699813842773,
+          "ssim_mean": 0.6549654364585876,
+          "lpips_squeeze_mean": 0.4193368196487427,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 13.433093070983887,
+              "ssim": 0.668658971786499,
+              "lpips_squeeze": 0.4227638840675354
+            },
+            {
+              "view": 1,
+              "psnr": 11.20429801940918,
+              "ssim": 0.6483986973762512,
+              "lpips_squeeze": 0.43085429072380066
+            },
+            {
+              "view": 2,
+              "psnr": 13.242656707763672,
+              "ssim": 0.6476101279258728,
+              "lpips_squeeze": 0.39361998438835144
+            },
+            {
+              "view": 3,
+              "psnr": 9.871203422546387,
+              "ssim": 0.6741779446601868,
+              "lpips_squeeze": 0.4082030653953552
+            },
+            {
+              "view": 4,
+              "psnr": 12.837247848510742,
+              "ssim": 0.6359814405441284,
+              "lpips_squeeze": 0.44124287366867065
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3612.645496094444,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "7b13e9cccb32b5dbd8c3cc3db544ae2581413c02e62505348d348c5974dd06c3"
+  },
+  {
+    "run": "nerf_raw_masked",
+    "config": {
+      "input": "data/tiny_nerf",
+      "output": "outputs/nerf_raw_masked",
+      "panorama": false,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "raw",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "mask_black_background": true,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "raw",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": null,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 0,
+      "finite_points": 860273,
+      "retained_before_voxel": 860273,
+      "exported_points": 30000,
+      "voxel_size": 0.0019783740096724683,
+      "cross_view": [],
+      "black_backdrop_mask": true
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.3000711503746921,
+        "relative_translation_rmse": 0.3630771585335715,
+        "rotation_error_deg_mean": 4.444609322724017,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 23
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 13.931086730211973,
+        "peak_vram_gb": 0.10828971862792969,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.21117767691612244,
+            "loss": 0.30611366033554077
+          },
+          {
+            "step": 100,
+            "l1": 0.10929661989212036,
+            "loss": 0.19066154956817627
+          },
+          {
+            "step": 200,
+            "l1": 0.07991410791873932,
+            "loss": 0.17859694361686707
+          },
+          {
+            "step": 300,
+            "l1": 0.08463557809591293,
+            "loss": 0.1611202359199524
+          },
+          {
+            "step": 400,
+            "l1": 0.08290039747953415,
+            "loss": 0.13436882197856903
+          },
+          {
+            "step": 500,
+            "l1": 0.041975539177656174,
+            "loss": 0.0851089358329773
+          },
+          {
+            "step": 600,
+            "l1": 0.0619562566280365,
+            "loss": 0.11356791853904724
+          },
+          {
+            "step": 700,
+            "l1": 0.05288751795887947,
+            "loss": 0.095269113779068
+          },
+          {
+            "step": 800,
+            "l1": 0.04615866392850876,
+            "loss": 0.07344955950975418
+          },
+          {
+            "step": 900,
+            "l1": 0.04888235777616501,
+            "loss": 0.08678540587425232
+          },
+          {
+            "step": 1000,
+            "l1": 0.06528208404779434,
+            "loss": 0.10414330661296844
+          },
+          {
+            "step": 1100,
+            "l1": 0.059763602912425995,
+            "loss": 0.09863526374101639
+          },
+          {
+            "step": 1200,
+            "l1": 0.052777476608753204,
+            "loss": 0.0901225209236145
+          },
+          {
+            "step": 1300,
+            "l1": 0.05311122536659241,
+            "loss": 0.09046182781457901
+          },
+          {
+            "step": 1400,
+            "l1": 0.05404079705476761,
+            "loss": 0.09214124083518982
+          },
+          {
+            "step": 1499,
+            "l1": 0.046915821731090546,
+            "loss": 0.07329098880290985
+          }
+        ],
+        "heldout": {
+          "count": 5,
+          "psnr_mean": 11.979873085021973,
+          "ssim_mean": 0.6210914373397827,
+          "lpips_squeeze_mean": 0.34368169903755186,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 13.012434005737305,
+              "ssim": 0.6200245022773743,
+              "lpips_squeeze": 0.35488927364349365
+            },
+            {
+              "view": 1,
+              "psnr": 11.36189079284668,
+              "ssim": 0.6233081221580505,
+              "lpips_squeeze": 0.3324548900127411
+            },
+            {
+              "view": 2,
+              "psnr": 13.168771743774414,
+              "ssim": 0.6510323286056519,
+              "lpips_squeeze": 0.2999555468559265
+            },
+            {
+              "view": 3,
+              "psnr": 9.649917602539062,
+              "ssim": 0.6229367256164551,
+              "lpips_squeeze": 0.37513846158981323
+            },
+            {
+              "view": 4,
+              "psnr": 12.706351280212402,
+              "ssim": 0.5881555080413818,
+              "lpips_squeeze": 0.3559703230857849
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3496.3008578481654,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "e3675c0e470e22964541001502da58cfbde80fc7192c13f191823fe6e4a75622"
+  },
+  {
+    "run": "overlap",
+    "config": {
+      "input": "/root/autodl-tmp/vggt-xr/data/analytic_room",
+      "output": "/root/autodl-tmp/vggt-xr/outputs/overlap",
+      "panorama": true,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "confidence",
+      "include_poles": false,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "mask_black_background": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000016689300537,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 15610,
+      "finite_points": 2709504,
+      "retained_before_voxel": 1757480,
+      "exported_points": 30000,
+      "voxel_size": 0.004958574354864955,
+      "cross_view": [],
+      "black_backdrop_mask": false
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.8610275317442665,
+        "relative_translation_rmse": 0.3890139915853397,
+        "rotation_error_deg_mean": 101.87867035123328,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 24
+      },
+      "depth_all": {
+        "scale": 3.8859591484069824,
+        "rmse": 0.5477982759475708,
+        "absrel": 0.18714536726474762,
+        "valid_pixels": 2709504,
+        "coverage": 1.0,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "depth_retained": {
+        "scale": 3.8859591484069824,
+        "rmse": 0.5443950295448303,
+        "absrel": 0.17736151814460754,
+        "valid_pixels": 1757480,
+        "coverage": 0.6486353221844293,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 12.973170593380928,
+        "peak_vram_gb": 0.11153745651245117,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.1521446257829666,
+            "loss": 0.22991439700126648
+          },
+          {
+            "step": 100,
+            "l1": 0.11787717044353485,
+            "loss": 0.18227988481521606
+          },
+          {
+            "step": 200,
+            "l1": 0.10536334663629532,
+            "loss": 0.17297112941741943
+          },
+          {
+            "step": 300,
+            "l1": 0.09666555374860764,
+            "loss": 0.1752791851758957
+          },
+          {
+            "step": 400,
+            "l1": 0.09081389755010605,
+            "loss": 0.15689003467559814
+          },
+          {
+            "step": 500,
+            "l1": 0.09347262233495712,
+            "loss": 0.15240173041820526
+          },
+          {
+            "step": 600,
+            "l1": 0.10596609860658646,
+            "loss": 0.16742679476737976
+          },
+          {
+            "step": 700,
+            "l1": 0.09069514274597168,
+            "loss": 0.14815759658813477
+          },
+          {
+            "step": 800,
+            "l1": 0.08879175037145615,
+            "loss": 0.14991557598114014
+          },
+          {
+            "step": 900,
+            "l1": 0.09151516854763031,
+            "loss": 0.16027213633060455
+          },
+          {
+            "step": 1000,
+            "l1": 0.08735187351703644,
+            "loss": 0.15835411846637726
+          },
+          {
+            "step": 1100,
+            "l1": 0.10037042200565338,
+            "loss": 0.1735755205154419
+          },
+          {
+            "step": 1200,
+            "l1": 0.07588430494070053,
+            "loss": 0.13197344541549683
+          },
+          {
+            "step": 1300,
+            "l1": 0.10199443250894547,
+            "loss": 0.16251105070114136
+          },
+          {
+            "step": 1400,
+            "l1": 0.08298870921134949,
+            "loss": 0.14940890669822693
+          },
+          {
+            "step": 1499,
+            "l1": 0.08571825176477432,
+            "loss": 0.14545845985412598
+          }
+        ],
+        "heldout": {
+          "count": 10,
+          "psnr_mean": 6.834575605392456,
+          "ssim_mean": 0.043682708134292626,
+          "lpips_squeeze_mean": 0.861748218536377,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 6.730003356933594,
+              "ssim": 0.008241426199674606,
+              "lpips_squeeze": 0.8330827951431274
+            },
+            {
+              "view": 1,
+              "psnr": 6.2287492752075195,
+              "ssim": 0.0006647268892265856,
+              "lpips_squeeze": 0.8750140070915222
+            },
+            {
+              "view": 2,
+              "psnr": 6.287975788116455,
+              "ssim": 0.03154461458325386,
+              "lpips_squeeze": 0.8906404376029968
+            },
+            {
+              "view": 3,
+              "psnr": 7.024636745452881,
+              "ssim": 0.06586114317178726,
+              "lpips_squeeze": 0.843303382396698
+            },
+            {
+              "view": 4,
+              "psnr": 7.686313629150391,
+              "ssim": 0.09747888892889023,
+              "lpips_squeeze": 0.8163803815841675
+            },
+            {
+              "view": 5,
+              "psnr": 7.074742794036865,
+              "ssim": 0.06888425350189209,
+              "lpips_squeeze": 0.8674880862236023
+            },
+            {
+              "view": 6,
+              "psnr": 6.4912261962890625,
+              "ssim": 0.02427108772099018,
+              "lpips_squeeze": 0.8908799886703491
+            },
+            {
+              "view": 7,
+              "psnr": 6.478207588195801,
+              "ssim": 0.00838234182447195,
+              "lpips_squeeze": 0.8712577223777771
+            },
+            {
+              "view": 8,
+              "psnr": 8.717437744140625,
+              "ssim": 0.13106338679790497,
+              "lpips_squeeze": 0.7488927841186523
+            },
+            {
+              "view": 9,
+              "psnr": 5.626462936401367,
+              "ssim": 0.00043521172483451664,
+              "lpips_squeeze": 0.9805426001548767
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3553.7325944381632,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "c82cad5d2c8b5849841f35af2b71a9a2367f7efaee8f3d36aae4c87df817492d"
+  },
+  {
+    "run": "overlap_anchor",
+    "config": {
+      "input": "data/analytic_room",
+      "output": "outputs/overlap_anchor",
+      "panorama": true,
+      "projection": "overlap",
+      "constrain_poses": true,
+      "filter": "confidence",
+      "include_poles": true,
+      "pose_fusion": "anchor",
+      "known_intrinsics": true,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 32,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000005960464478,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 35145,
+      "finite_points": 3386880,
+      "retained_before_voxel": 2197845,
+      "exported_points": 30000,
+      "voxel_size": 0.009258197194123834,
+      "cross_view": []
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.2571653793329192,
+        "relative_translation_rmse": 0.13025510919926564,
+        "rotation_error_deg_mean": 14.540859140045878,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 30
+      },
+      "depth_all": {
+        "scale": 4.2181220054626465,
+        "rmse": 0.710589587688446,
+        "absrel": 0.2742954194545746,
+        "valid_pixels": 3386880,
+        "coverage": 1.0,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "depth_retained": {
+        "scale": 4.2181220054626465,
+        "rmse": 0.6621593236923218,
+        "absrel": 0.22517883777618408,
+        "valid_pixels": 2197845,
+        "coverage": 0.6489291028911565,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 14.195660021156073,
+        "peak_vram_gb": 0.11476612091064453,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.1258264183998108,
+            "loss": 0.16695643961429596
+          },
+          {
+            "step": 100,
+            "l1": 0.07256568968296051,
+            "loss": 0.13026723265647888
+          },
+          {
+            "step": 200,
+            "l1": 0.04139319062232971,
+            "loss": 0.09788018465042114
+          },
+          {
+            "step": 300,
+            "l1": 0.06505226343870163,
+            "loss": 0.11749424040317535
+          },
+          {
+            "step": 400,
+            "l1": 0.02968825213611126,
+            "loss": 0.05242500081658363
+          },
+          {
+            "step": 500,
+            "l1": 0.04367637634277344,
+            "loss": 0.07400323450565338
+          },
+          {
+            "step": 600,
+            "l1": 0.026997758075594902,
+            "loss": 0.044172629714012146
+          },
+          {
+            "step": 700,
+            "l1": 0.024623321369290352,
+            "loss": 0.04247184097766876
+          },
+          {
+            "step": 800,
+            "l1": 0.03757000342011452,
+            "loss": 0.06218881905078888
+          },
+          {
+            "step": 900,
+            "l1": 0.03351086750626564,
+            "loss": 0.05547824501991272
+          },
+          {
+            "step": 1000,
+            "l1": 0.03024621307849884,
+            "loss": 0.04419233649969101
+          },
+          {
+            "step": 1100,
+            "l1": 0.03110150620341301,
+            "loss": 0.05037336051464081
+          },
+          {
+            "step": 1200,
+            "l1": 0.043489474803209305,
+            "loss": 0.07467763870954514
+          },
+          {
+            "step": 1300,
+            "l1": 0.04792219400405884,
+            "loss": 0.08155651390552521
+          },
+          {
+            "step": 1400,
+            "l1": 0.03523971140384674,
+            "loss": 0.06241442263126373
+          },
+          {
+            "step": 1499,
+            "l1": 0.023616600781679153,
+            "loss": 0.03602064028382301
+          }
+        ],
+        "heldout": {
+          "count": 10,
+          "psnr_mean": 14.645909309387207,
+          "ssim_mean": 0.36366717219352723,
+          "lpips_squeeze_mean": 0.47330955862998964,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 13.474024772644043,
+              "ssim": 0.2715250551700592,
+              "lpips_squeeze": 0.5186221599578857
+            },
+            {
+              "view": 1,
+              "psnr": 14.235596656799316,
+              "ssim": 0.3507250249385834,
+              "lpips_squeeze": 0.5109668374061584
+            },
+            {
+              "view": 2,
+              "psnr": 15.262746810913086,
+              "ssim": 0.3986733853816986,
+              "lpips_squeeze": 0.4605617821216583
+            },
+            {
+              "view": 3,
+              "psnr": 14.169901847839355,
+              "ssim": 0.3532579839229584,
+              "lpips_squeeze": 0.4769611954689026
+            },
+            {
+              "view": 4,
+              "psnr": 13.49825668334961,
+              "ssim": 0.2818062901496887,
+              "lpips_squeeze": 0.48243480920791626
+            },
+            {
+              "view": 5,
+              "psnr": 14.424424171447754,
+              "ssim": 0.3384111225605011,
+              "lpips_squeeze": 0.4854869842529297
+            },
+            {
+              "view": 6,
+              "psnr": 14.069648742675781,
+              "ssim": 0.2995624542236328,
+              "lpips_squeeze": 0.4653792977333069
+            },
+            {
+              "view": 7,
+              "psnr": 13.982587814331055,
+              "ssim": 0.31606999039649963,
+              "lpips_squeeze": 0.4965395927429199
+            },
+            {
+              "view": 8,
+              "psnr": 19.065263748168945,
+              "ssim": 0.4762340188026428,
+              "lpips_squeeze": 0.4938306212425232
+            },
+            {
+              "view": 9,
+              "psnr": 14.276641845703125,
+              "ssim": 0.5504063963890076,
+              "lpips_squeeze": 0.3423123061656952
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3701.9406832708864,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "c90534c2d32065ec42af33127275775bd98a53ad812b47f6b2a4f5ff0a26fb43"
+  },
+  {
+    "run": "overlap_consistency",
+    "config": {
+      "input": "/root/autodl-tmp/vggt-xr/data/analytic_room",
+      "output": "/root/autodl-tmp/vggt-xr/outputs/overlap_consistency",
+      "panorama": true,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "consistency",
+      "include_poles": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "consistency",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000016689300537,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 15610,
+      "finite_points": 2709504,
+      "retained_before_voxel": 1523792,
+      "exported_points": 30000,
+      "voxel_size": 0.004783534066786341,
+      "cross_view": [
+        {
+          "view": 0,
+          "candidates": 83149,
+          "supported": 71518,
+          "no_overlap": 0
+        },
+        {
+          "view": 1,
+          "candidates": 63261,
+          "supported": 49534,
+          "no_overlap": 76
+        },
+        {
+          "view": 2,
+          "candidates": 38845,
+          "supported": 31350,
+          "no_overlap": 5680
+        },
+        {
+          "view": 3,
+          "candidates": 99439,
+          "supported": 85368,
+          "no_overlap": 2166
+        },
+        {
+          "view": 4,
+          "candidates": 84966,
+          "supported": 81518,
+          "no_overlap": 0
+        },
+        {
+          "view": 5,
+          "candidates": 102751,
+          "supported": 99630,
+          "no_overlap": 0
+        },
+        {
+          "view": 6,
+          "candidates": 83749,
+          "supported": 53150,
+          "no_overlap": 63
+        },
+        {
+          "view": 7,
+          "candidates": 54137,
+          "supported": 47042,
+          "no_overlap": 98
+        },
+        {
+          "view": 8,
+          "candidates": 88754,
+          "supported": 81915,
+          "no_overlap": 0
+        },
+        {
+          "view": 9,
+          "candidates": 65111,
+          "supported": 64549,
+          "no_overlap": 0
+        },
+        {
+          "view": 10,
+          "candidates": 30504,
+          "supported": 22459,
+          "no_overlap": 1585
+        },
+        {
+          "view": 11,
+          "candidates": 80493,
+          "supported": 69831,
+          "no_overlap": 61
+        },
+        {
+          "view": 12,
+          "candidates": 65445,
+          "supported": 61144,
+          "no_overlap": 0
+        },
+        {
+          "view": 13,
+          "candidates": 107747,
+          "supported": 105052,
+          "no_overlap": 0
+        },
+        {
+          "view": 14,
+          "candidates": 63072,
+          "supported": 52882,
+          "no_overlap": 957
+        },
+        {
+          "view": 15,
+          "candidates": 93137,
+          "supported": 69757,
+          "no_overlap": 16557
+        },
+        {
+          "view": 16,
+          "candidates": 69455,
+          "supported": 67301,
+          "no_overlap": 0
+        },
+        {
+          "view": 17,
+          "candidates": 94130,
+          "supported": 94015,
+          "no_overlap": 0
+        },
+        {
+          "view": 18,
+          "candidates": 60748,
+          "supported": 42539,
+          "no_overlap": 0
+        },
+        {
+          "view": 19,
+          "candidates": 59522,
+          "supported": 56623,
+          "no_overlap": 669
+        },
+        {
+          "view": 20,
+          "candidates": 21776,
+          "supported": 21000,
+          "no_overlap": 0
+        },
+        {
+          "view": 21,
+          "candidates": 93514,
+          "supported": 81652,
+          "no_overlap": 2266
+        },
+        {
+          "view": 22,
+          "candidates": 62782,
+          "supported": 52709,
+          "no_overlap": 4320
+        },
+        {
+          "view": 23,
+          "candidates": 90993,
+          "supported": 61254,
+          "no_overlap": 0
+        }
+      ]
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.8610275317442665,
+        "relative_translation_rmse": 0.3890139915853397,
+        "rotation_error_deg_mean": 101.87867035123328,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 24
+      },
+      "depth_all": {
+        "scale": 3.8859591484069824,
+        "rmse": 0.5477982759475708,
+        "absrel": 0.18714536726474762,
+        "valid_pixels": 2709504,
+        "coverage": 1.0,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "depth_retained": {
+        "scale": 3.8859591484069824,
+        "rmse": 0.5315357446670532,
+        "absrel": 0.17004458606243134,
+        "valid_pixels": 1523792,
+        "coverage": 0.5623878023431594,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 14.404007449746132,
+        "peak_vram_gb": 0.11020040512084961,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.13862629234790802,
+            "loss": 0.216554656624794
+          },
+          {
+            "step": 100,
+            "l1": 0.1335475593805313,
+            "loss": 0.198885977268219
+          },
+          {
+            "step": 200,
+            "l1": 0.1056620180606842,
+            "loss": 0.17434056103229523
+          },
+          {
+            "step": 300,
+            "l1": 0.09525133669376373,
+            "loss": 0.1727297455072403
+          },
+          {
+            "step": 400,
+            "l1": 0.10029543191194534,
+            "loss": 0.16960078477859497
+          },
+          {
+            "step": 500,
+            "l1": 0.09541890770196915,
+            "loss": 0.15337783098220825
+          },
+          {
+            "step": 600,
+            "l1": 0.10603180527687073,
+            "loss": 0.16792680323123932
+          },
+          {
+            "step": 700,
+            "l1": 0.09332013875246048,
+            "loss": 0.15108881890773773
+          },
+          {
+            "step": 800,
+            "l1": 0.08940885961055756,
+            "loss": 0.15067316591739655
+          },
+          {
+            "step": 900,
+            "l1": 0.09314637631177902,
+            "loss": 0.1629938781261444
+          },
+          {
+            "step": 1000,
+            "l1": 0.08984551578760147,
+            "loss": 0.16073381900787354
+          },
+          {
+            "step": 1100,
+            "l1": 0.10100303590297699,
+            "loss": 0.1741936206817627
+          },
+          {
+            "step": 1200,
+            "l1": 0.08604184538125992,
+            "loss": 0.14651107788085938
+          },
+          {
+            "step": 1300,
+            "l1": 0.1041831374168396,
+            "loss": 0.1654539406299591
+          },
+          {
+            "step": 1400,
+            "l1": 0.0850849598646164,
+            "loss": 0.15234285593032837
+          },
+          {
+            "step": 1499,
+            "l1": 0.08790944516658783,
+            "loss": 0.14810629189014435
+          }
+        ],
+        "heldout": {
+          "count": 10,
+          "psnr_mean": 6.848651981353759,
+          "ssim_mean": 0.04110223363095429,
+          "lpips_squeeze_mean": 0.8576669812202453,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 6.730003356933594,
+              "ssim": 0.008241426199674606,
+              "lpips_squeeze": 0.8330827951431274
+            },
+            {
+              "view": 1,
+              "psnr": 6.2287492752075195,
+              "ssim": 0.0006647268892265856,
+              "lpips_squeeze": 0.8750140070915222
+            },
+            {
+              "view": 2,
+              "psnr": 6.269660949707031,
+              "ssim": 0.020938299596309662,
+              "lpips_squeeze": 0.8829560875892639
+            },
+            {
+              "view": 3,
+              "psnr": 7.076297760009766,
+              "ssim": 0.06311183422803879,
+              "lpips_squeeze": 0.8316957950592041
+            },
+            {
+              "view": 4,
+              "psnr": 7.904888153076172,
+              "ssim": 0.09770194441080093,
+              "lpips_squeeze": 0.8080621361732483
+            },
+            {
+              "view": 5,
+              "psnr": 7.123460292816162,
+              "ssim": 0.07347372174263,
+              "lpips_squeeze": 0.8605619668960571
+            },
+            {
+              "view": 6,
+              "psnr": 6.469528675079346,
+              "ssim": 0.026029419153928757,
+              "lpips_squeeze": 0.8929181694984436
+            },
+            {
+              "view": 7,
+              "psnr": 6.478207588195801,
+              "ssim": 0.00838234182447195,
+              "lpips_squeeze": 0.8712577223777771
+            },
+            {
+              "view": 8,
+              "psnr": 8.57926082611084,
+              "ssim": 0.11204341053962708,
+              "lpips_squeeze": 0.7405785322189331
+            },
+            {
+              "view": 9,
+              "psnr": 5.626462936401367,
+              "ssim": 0.00043521172483451664,
+              "lpips_squeeze": 0.9805426001548767
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3541.3368231913732,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "a4ca31e2c7ed6b66f6abdc6777aaf55d7dab098be85a6967b4dc08a6c98e05da"
+  },
+  {
+    "run": "overlap_constrained",
+    "config": {
+      "input": "/root/autodl-tmp/vggt-xr/data/analytic_room",
+      "output": "/root/autodl-tmp/vggt-xr/outputs/overlap_constrained",
+      "panorama": true,
+      "projection": "overlap",
+      "constrain_poses": true,
+      "filter": "confidence",
+      "include_poles": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 24,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000016689300537,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 15610,
+      "finite_points": 2709504,
+      "retained_before_voxel": 1757480,
+      "exported_points": 30000,
+      "voxel_size": 0.008782606985853321,
+      "cross_view": []
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.5543932824382484,
+        "relative_translation_rmse": 0.2502480970621777,
+        "rotation_error_deg_mean": 158.42887038304528,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 24
+      },
+      "depth_all": {
+        "scale": 3.8859591484069824,
+        "rmse": 0.5477982759475708,
+        "absrel": 0.18714536726474762,
+        "valid_pixels": 2709504,
+        "coverage": 1.0,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "depth_retained": {
+        "scale": 3.8859591484069824,
+        "rmse": 0.5443950295448303,
+        "absrel": 0.17736151814460754,
+        "valid_pixels": 1757480,
+        "coverage": 0.6486353221844293,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 12.21307960525155,
+        "peak_vram_gb": 0.10870933532714844,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.1425146460533142,
+            "loss": 0.21965175867080688
+          },
+          {
+            "step": 100,
+            "l1": 0.10202819854021072,
+            "loss": 0.16161370277404785
+          },
+          {
+            "step": 200,
+            "l1": 0.09714990854263306,
+            "loss": 0.1680859476327896
+          },
+          {
+            "step": 300,
+            "l1": 0.10022423416376114,
+            "loss": 0.17779722809791565
+          },
+          {
+            "step": 400,
+            "l1": 0.10295679420232773,
+            "loss": 0.17735126614570618
+          },
+          {
+            "step": 500,
+            "l1": 0.10929230600595474,
+            "loss": 0.17055192589759827
+          },
+          {
+            "step": 600,
+            "l1": 0.0964602679014206,
+            "loss": 0.15292303264141083
+          },
+          {
+            "step": 700,
+            "l1": 0.08312840759754181,
+            "loss": 0.14100956916809082
+          },
+          {
+            "step": 800,
+            "l1": 0.09078861773014069,
+            "loss": 0.1490163505077362
+          },
+          {
+            "step": 900,
+            "l1": 0.08447739481925964,
+            "loss": 0.15144196152687073
+          },
+          {
+            "step": 1000,
+            "l1": 0.08232364803552628,
+            "loss": 0.1502458155155182
+          },
+          {
+            "step": 1100,
+            "l1": 0.09168736636638641,
+            "loss": 0.15972203016281128
+          },
+          {
+            "step": 1200,
+            "l1": 0.08783208578824997,
+            "loss": 0.1522866189479828
+          },
+          {
+            "step": 1300,
+            "l1": 0.08831673860549927,
+            "loss": 0.13878223299980164
+          },
+          {
+            "step": 1400,
+            "l1": 0.07606786489486694,
+            "loss": 0.13778281211853027
+          },
+          {
+            "step": 1499,
+            "l1": 0.07986719161272049,
+            "loss": 0.13390131294727325
+          }
+        ],
+        "heldout": {
+          "count": 10,
+          "psnr_mean": 10.12143054008484,
+          "ssim_mean": 0.2629769369959831,
+          "lpips_squeeze_mean": 0.7690996944904327,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 7.676589488983154,
+              "ssim": 0.12608008086681366,
+              "lpips_squeeze": 0.9016481637954712
+            },
+            {
+              "view": 1,
+              "psnr": 9.449369430541992,
+              "ssim": 0.21924887597560883,
+              "lpips_squeeze": 0.7688113451004028
+            },
+            {
+              "view": 2,
+              "psnr": 13.188392639160156,
+              "ssim": 0.36766502261161804,
+              "lpips_squeeze": 0.6647922992706299
+            },
+            {
+              "view": 3,
+              "psnr": 10.141996383666992,
+              "ssim": 0.2779293358325958,
+              "lpips_squeeze": 0.7698162794113159
+            },
+            {
+              "view": 4,
+              "psnr": 9.038739204406738,
+              "ssim": 0.205323725938797,
+              "lpips_squeeze": 0.7717376351356506
+            },
+            {
+              "view": 5,
+              "psnr": 10.01008415222168,
+              "ssim": 0.2738141417503357,
+              "lpips_squeeze": 0.7496996521949768
+            },
+            {
+              "view": 6,
+              "psnr": 11.435131072998047,
+              "ssim": 0.31064409017562866,
+              "lpips_squeeze": 0.7256280779838562
+            },
+            {
+              "view": 7,
+              "psnr": 8.686955451965332,
+              "ssim": 0.18683959543704987,
+              "lpips_squeeze": 0.808365523815155
+            },
+            {
+              "view": 8,
+              "psnr": 11.951054573059082,
+              "ssim": 0.34206146001815796,
+              "lpips_squeeze": 0.8144851326942444
+            },
+            {
+              "view": 9,
+              "psnr": 9.635993003845215,
+              "ssim": 0.3201630413532257,
+              "lpips_squeeze": 0.7160128355026245
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3220.320948252055,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "5a5428f56d870b2e18d97593b1697fe10c01a46ad74747ef51bd8499aba0812c"
+  },
+  {
+    "run": "overlap_fullsphere",
+    "config": {
+      "input": "data/analytic_room",
+      "output": "outputs/overlap_fullsphere",
+      "panorama": true,
+      "projection": "overlap",
+      "constrain_poses": false,
+      "filter": "confidence",
+      "include_poles": true,
+      "pose_fusion": "mean",
+      "known_intrinsics": false,
+      "confidence_quantile": 0.35,
+      "size": 336,
+      "max_views": 32,
+      "max_points": 30000,
+      "steps": 1500,
+      "geometry_only": false
+    },
+    "filter": {
+      "method": "confidence",
+      "confidence_quantile": 0.35,
+      "confidence_threshold": 1.0000005960464478,
+      "threshold_comparison": "strict greater than",
+      "threshold_tied_pixels": 35145,
+      "finite_points": 3386880,
+      "retained_before_voxel": 2197845,
+      "exported_points": 30000,
+      "voxel_size": 0.004800525898941824,
+      "cross_view": []
+    },
+    "summary": {
+      "cameras": {
+        "ate_sim3_rmse": 0.8552602060507662,
+        "relative_translation_rmse": 0.40417165172458835,
+        "rotation_error_deg_mean": 148.80724316530387,
+        "alignment": "Sim(3) fitted to training camera centers",
+        "num_cameras": 30
+      },
+      "depth_all": {
+        "scale": 4.2181220054626465,
+        "rmse": 0.710589587688446,
+        "absrel": 0.2742954194545746,
+        "valid_pixels": 3386880,
+        "coverage": 1.0,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "depth_retained": {
+        "scale": 4.2181220054626465,
+        "rmse": 0.6621593236923218,
+        "absrel": 0.22517883777618408,
+        "valid_pixels": 2197845,
+        "coverage": 0.6489291028911565,
+        "alignment": "global median depth scale on observed training views"
+      },
+      "gaussian": {
+        "steps": 1500,
+        "gaussian_count": 30000,
+        "train_seconds": 13.886144019663334,
+        "peak_vram_gb": 0.11781835556030273,
+        "seed": 42,
+        "sh_degree": 0,
+        "densification": false,
+        "protocol": "Fixed Gaussian budget; optimize position, covariance, opacity and RGB; identical steps/seed between initialization variants",
+        "history": [
+          {
+            "step": 0,
+            "l1": 0.2685825228691101,
+            "loss": 0.3079063892364502
+          },
+          {
+            "step": 100,
+            "l1": 0.13640961050987244,
+            "loss": 0.21625100076198578
+          },
+          {
+            "step": 200,
+            "l1": 0.1097603365778923,
+            "loss": 0.16798284649848938
+          },
+          {
+            "step": 300,
+            "l1": 0.12408523261547089,
+            "loss": 0.20689058303833008
+          },
+          {
+            "step": 400,
+            "l1": 0.07148980349302292,
+            "loss": 0.11887794733047485
+          },
+          {
+            "step": 500,
+            "l1": 0.09799280762672424,
+            "loss": 0.16725356876850128
+          },
+          {
+            "step": 600,
+            "l1": 0.09570901840925217,
+            "loss": 0.155188649892807
+          },
+          {
+            "step": 700,
+            "l1": 0.06042890623211861,
+            "loss": 0.0994495302438736
+          },
+          {
+            "step": 800,
+            "l1": 0.10152095556259155,
+            "loss": 0.16928499937057495
+          },
+          {
+            "step": 900,
+            "l1": 0.09466865658760071,
+            "loss": 0.1588558852672577
+          },
+          {
+            "step": 1000,
+            "l1": 0.06973738223314285,
+            "loss": 0.11910191178321838
+          },
+          {
+            "step": 1100,
+            "l1": 0.09388133138418198,
+            "loss": 0.1597551703453064
+          },
+          {
+            "step": 1200,
+            "l1": 0.07593440264463425,
+            "loss": 0.14403799176216125
+          },
+          {
+            "step": 1300,
+            "l1": 0.09958702325820923,
+            "loss": 0.17247724533081055
+          },
+          {
+            "step": 1400,
+            "l1": 0.08186086267232895,
+            "loss": 0.14936460554599762
+          },
+          {
+            "step": 1499,
+            "l1": 0.08505281805992126,
+            "loss": 0.1430710107088089
+          }
+        ],
+        "heldout": {
+          "count": 10,
+          "psnr_mean": 7.139325666427612,
+          "ssim_mean": 0.06429924358380959,
+          "lpips_squeeze_mean": 0.7955116748809814,
+          "per_view": [
+            {
+              "view": 0,
+              "psnr": 6.730003356933594,
+              "ssim": 0.008241426199674606,
+              "lpips_squeeze": 0.8330827951431274
+            },
+            {
+              "view": 1,
+              "psnr": 6.2287492752075195,
+              "ssim": 0.0006647268892265856,
+              "lpips_squeeze": 0.8750140070915222
+            },
+            {
+              "view": 2,
+              "psnr": 6.983372688293457,
+              "ssim": 0.10635150969028473,
+              "lpips_squeeze": 0.8133947253227234
+            },
+            {
+              "view": 3,
+              "psnr": 7.708926200866699,
+              "ssim": 0.11144128441810608,
+              "lpips_squeeze": 0.7601350545883179
+            },
+            {
+              "view": 4,
+              "psnr": 9.485391616821289,
+              "ssim": 0.1641962081193924,
+              "lpips_squeeze": 0.6703429818153381
+            },
+            {
+              "view": 5,
+              "psnr": 7.845346450805664,
+              "ssim": 0.12921667098999023,
+              "lpips_squeeze": 0.7645824551582336
+            },
+            {
+              "view": 6,
+              "psnr": 6.5302934646606445,
+              "ssim": 0.03373786434531212,
+              "lpips_squeeze": 0.8522831201553345
+            },
+            {
+              "view": 7,
+              "psnr": 6.478207588195801,
+              "ssim": 0.00838234182447195,
+              "lpips_squeeze": 0.8712577223777771
+            },
+            {
+              "view": 8,
+              "psnr": 7.273884296417236,
+              "ssim": 0.0008798081544227898,
+              "lpips_squeeze": 0.6177986264228821
+            },
+            {
+              "view": 9,
+              "psnr": 6.129081726074219,
+              "ssim": 0.07988059520721436,
+              "lpips_squeeze": 0.8972252607345581
+            }
+          ],
+          "pose_protocol": "GT test cameras transformed using training-only Sim(3); test images never input to VGGT or GS optimizer"
+        },
+        "server_raster_fps": 3686.5391114993704,
+        "fps_note": "Headless gsplat CUDA at native image resolution, excludes display/Unity; not Unity FPS"
+      }
+    },
+    "gaussian_bytes": 7441530,
+    "gaussian_sha256": "7efa733735aa4fe3566d1327928d238655d7875f32f1ac41f7b4273294e12b9b"
+  }
+]

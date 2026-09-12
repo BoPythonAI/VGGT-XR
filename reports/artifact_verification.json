@@ -1,0 +1,142 @@
+[
+  {
+    "run": "cubemap",
+    "images": 18,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 10
+  },
+  {
+    "run": "erp_direct",
+    "images": 3,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "raw: no threshold",
+    "heldout_count": 0
+  },
+  {
+    "run": "kitchen",
+    "images": 24,
+    "points": 60000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 0
+  },
+  {
+    "run": "nerf_confidence",
+    "images": 23,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 5
+  },
+  {
+    "run": "nerf_confidence_masked",
+    "images": 23,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 5
+  },
+  {
+    "run": "nerf_consistency",
+    "images": 23,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 5
+  },
+  {
+    "run": "nerf_consistency_masked",
+    "images": 23,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 5
+  },
+  {
+    "run": "nerf_raw",
+    "images": 23,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "raw: no threshold",
+    "heldout_count": 5
+  },
+  {
+    "run": "nerf_raw_masked",
+    "images": 23,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "raw: no threshold",
+    "heldout_count": 5
+  },
+  {
+    "run": "overlap",
+    "images": 24,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 10
+  },
+  {
+    "run": "overlap_anchor",
+    "images": 30,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 10
+  },
+  {
+    "run": "overlap_consistency",
+    "images": 24,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 10
+  },
+  {
+    "run": "overlap_constrained",
+    "images": 24,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 10
+  },
+  {
+    "run": "overlap_fullsphere",
+    "images": 30,
+    "points": 30000,
+    "finite_predictions": true,
+    "finite_gaussians": true,
+    "input_fingerprint": true,
+    "filter_comparison": "strict greater than",
+    "heldout_count": 10
+  }
+]

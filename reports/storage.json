@@ -1,0 +1,14 @@
+{
+  "server_system": {
+    "total_gib": 30.0,
+    "used_gib": 0.76373291015625,
+    "free_gib": 29.23626708984375
+  },
+  "server_data": {
+    "total_gib": 350.0,
+    "used_gib": 191.85716247558594,
+    "free_gib": 158.14283752441406
+  },
+  "root": "/root/autodl-tmp/vggt-xr",
+  "weights_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+}

@@ -1,0 +1,17 @@
+# Install GPU PyTorch suitable for your GPU separately; server reuses torch 2.12.1+cu130.
+gsplat==1.5.3
+numpy>=1.26
+scipy>=1.11
+Pillow>=10
+huggingface_hub>=0.30
+pycolmap>=3.12
+ninja>=1.11
+torchmetrics>=1.7
+lpips==0.1.4
+imageio>=2.31
+imageio-ffmpeg>=0.4
+matplotlib>=3.8
+pytest>=8
+requests>=2.31
+einops>=0.7
+safetensors>=0.4
