@@ -45,6 +45,81 @@ def trace(origin, rays):
     return color.clip(0,1).reshape(*shape,3).astype(np.float32),best.reshape(shape).astype(np.float32)
 
 
+def trace_natural(origin, rays):
+    """Analytical room with restrained, material-like colors and exact depth."""
+    boxes = [([-3,-1.5,-4],[3,1.5,4]),
+             ([-1.5,.35,.8],[.25,.53,2.25]),
+             ([-1.42,.53,.9],[-1.28,1.5,1.05]),
+             ([.03,.53,2.0],[.17,1.5,2.15]),
+             ([1.0,.55,-2.8],[2.55,1.5,-.85]),
+             ([-2.8,-.72,-3.72],[-1.25,.68,-3.48]),
+             ([.65,-.55,2.9],[2.15,.8,3.28]),
+             ([-2.5,.65,-1.8],[-2.0,1.5,-1.3])]
+    shape=rays.shape[:-1];rd=rays.reshape(-1,3);safe=np.where(np.abs(rd)<1e-8,1e-8,rd)
+    best=np.full(len(rd),np.inf);label=np.zeros(len(rd),int);axis=np.zeros(len(rd),int)
+    for j,(lo,hi) in enumerate(boxes):
+        lo,hi=np.asarray(lo),np.asarray(hi);ts=(lo-origin)/safe;te=(hi-origin)/safe
+        near,far=np.minimum(ts,te),np.maximum(ts,te);enter,leave=near.max(-1),far.min(-1)
+        distance=leave if j==0 else np.where((leave>=enter)&(enter>0),enter,np.inf)
+        face=far.argmin(-1) if j==0 else near.argmax(-1);take=(distance>0)&(distance<best)
+        best[take],label[take],axis[take]=distance[take],j,face[take]
+    xyz=origin+best[:,None]*rd
+    palette=np.array([[.76,.74,.69],[.43,.25,.12],[.30,.17,.08],[.30,.17,.08],
+                      [.25,.39,.47],[.52,.38,.24],[.37,.47,.36],[.24,.43,.25]])
+    color=palette[label].copy()
+    room=label==0;floor=room&(axis==1)&(xyz[:,1]>0);ceiling=room&(axis==1)&~floor;walls=room&~(axis==1)
+    color[ceiling]=[.88,.87,.82];color[walls]=[.75,.73,.68]
+    # Low-contrast achromatic plaster texture gives correspondence without the
+    # old rainbow appearance. Add plausible architectural landmarks as texture.
+    plaster=.018*(np.sin(xyz[:,0]*8.1+xyz[:,2]*3.7+xyz[:,1]*5.2)
+                  +.55*np.cos(xyz[:,2]*11.3-xyz[:,1]*7.4+xyz[:,0]*2.3)
+                  +.35*np.sin(xyz[:,0]*13.7+xyz[:,2]*9.1-xyz[:,1]*4.6))
+    color[walls]+=plaster[walls,None]
+    baseboard=walls&(xyz[:,1]>1.30);color[baseboard]=[.38,.22,.12]
+    back=walls&(axis==2)&(xyz[:,2]<-3.9)
+    window=back&(np.abs(xyz[:,0])<1.05)&(xyz[:,1]>-.85)&(xyz[:,1]<.48)
+    frame=window&((np.abs(np.abs(xyz[:,0])-1.0)<.07)|(np.abs(xyz[:,1]+.82)<.06)|(np.abs(xyz[:,1]-.45)<.06)|(np.abs(xyz[:,0])<.045))
+    sky=np.stack([.38+.05*np.sin(xyz[:,0]*2),.57+.04*np.sin(xyz[:,1]*4),.72+.03*np.cos(xyz[:,0]*3)],-1)
+    color[window]=sky[window];color[frame]=[.34,.20,.11]
+    side=walls&(axis==0)&(xyz[:,0]>2.9)
+    picture=side&(xyz[:,2]>-.9)&(xyz[:,2]<.75)&(xyz[:,1]>-.65)&(xyz[:,1]<.35)
+    picture_frame=picture&((np.abs(xyz[:,2]+.9)<.06)|(np.abs(xyz[:,2]-.75)<.06)|(np.abs(xyz[:,1]+.65)<.06)|(np.abs(xyz[:,1]-.35)<.06))
+    color[picture]=np.array([.42,.52,.44])+(.05*np.sin(xyz[picture,2:3]*9))*np.array([1.,.6,.3])
+    color[picture_frame]=[.25,.16,.10]
+    # Warm wood planks: narrow seams and subtle grain, without high-frequency RGB bands.
+    plank=np.floor((xyz[:,0]+3)/.28).astype(int);row=np.floor((xyz[:,2]+4)/1.35).astype(int)
+    seam=(np.mod(xyz[:,0]+3,.28)<.012)|(np.mod(xyz[:,2]+4+(.14*(row%2)),1.35)<.014)
+    wood=np.array([.47,.31,.18])+(.025*((plank+row)%3-1))[:,None]
+    wood+=.018*np.sin(xyz[:,2:3]*18+plank[:,None]*.7)
+    color[floor]=wood[floor];color[floor&seam]=[.24,.16,.10]
+    # Gentle luminance variation and a broad window-side light gradient.
+    variation=.018*np.sin(xyz[:,0]*2.1+xyz[:,2]*1.3)
+    daylight=.82+.16*np.clip((xyz[:,0]+3)/6,0,1)
+    color*=daylight[:,None];color+=variation[:,None]
+    return color.clip(0,1).reshape(*shape,3).astype(np.float32),best.reshape(shape).astype(np.float32)
+
+
+TRACE_GENERATORS={'trace':trace,'trace_natural':trace_natural}
+
+
+def prepare_natural_room(root, size):
+    scene=root/'natural_room';(scene/'panoramas').mkdir(parents=True,exist_ok=True);(scene/'test').mkdir(exist_ok=True)
+    origins=np.array([[-.8,0,-.6],[.6,.2,-.5],[.4,-.1,.7]],np.float32);rays=erp_rays(512,1024)
+    for i,origin in enumerate(origins):
+        rgb,radial_depth=trace_natural(origin,rays)
+        Image.fromarray((rgb*255).astype('uint8')).save(scene/'panoramas'/f'pano_{i:02d}.png')
+        np.save(scene/'panoramas'/f'pano_{i:02d}_range.npy',radial_depth)
+    local,k=perspective_rays(size,90);frames=[];centers=[[-.3,-.05,-.1],[.1,.1,.45],[-.4,.05,.6]]
+    for center_id,center in enumerate(centers):
+        center=np.asarray(center,np.float32)
+        for view,(yaw,pitch) in enumerate([(y,0) for y in range(0,360,45)]+[(0,90),(0,-90)]):
+            r=rotation(yaw,pitch);rgb,_=trace_natural(center,local@r.T);name=f'center_{center_id}_view_{view:02d}.png'
+            Image.fromarray((rgb*255).astype(np.uint8)).save(scene/'test'/name)
+            c2w=np.eye(4,dtype=np.float32);c2w[:3,:3]=r;c2w[:3,3]=center
+            frames.append(dict(file=name,c2w=c2w.tolist(),intrinsics=k.tolist(),center_id=center_id,yaw=yaw,pitch=pitch))
+    write_json(scene/'scene.json',dict(name='Natural analytical furnished room v2',kind='controlled_synthetic',generator='trace_natural',version=2,panorama_origins=origins.tolist(),gt_units='meters',test_frames=frames,protocol='Three training panorama centers and three disjoint test centers; exact analytical RGB/depth/poses',source='scripts/prepare_data.py',license='MIT'))
+
+
 def prepare_room(root, size):
     scene = root/'analytic_room'
     (scene/'panoramas').mkdir(parents=True,exist_ok=True)
@@ -98,4 +173,5 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',default='/root/autodl-tmp/vggt-xr/data');p.add_argument('--size',type=int,default=336);a=p.parse_args()
     root=Path(a.root);check_storage(root,growth_gb=.2)
     prepare_room(root,a.size);print('Analytical panoramas ready',flush=True)
+    prepare_natural_room(root,a.size);print('Natural analytical panoramas ready',flush=True)
     prepare_nerf(root,a.size);print('Public NeRF data ready',flush=True)

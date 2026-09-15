@@ -51,6 +51,7 @@ def main():
             erp=np.asarray(Image.open(f).convert('RGB'))
             if abs(erp.shape[1]/erp.shape[0]-2)>.03:raise ValueError(f'Expected 2:1 ERP panorama: {f}')
             origin=np.asarray(metadata['panorama_origins'][i]) if 'panorama_origins' in metadata else None
+            base_rotation=np.asarray(metadata.get('panorama_rotations',[np.eye(3)]*len(originals))[i],np.float32)
             range_path=f.with_name(f.stem+'_range.npy')
             radial=np.load(range_path) if range_path.exists() else None
             for j,(yaw,pitch,fov) in enumerate(spec):
@@ -61,13 +62,14 @@ def main():
                 if k is not None:adapter_k.append(k)
                 Image.fromarray(rgb.astype(np.uint8)).save(images_dir/name)
                 if origin is not None and fov is not None:
-                    c2w=np.eye(4,dtype=np.float32);c2w[:3,:3]=r;c2w[:3,3]=origin;gt_c2w.append(c2w)
+                    c2w=np.eye(4,dtype=np.float32);c2w[:3,:3]=base_rotation@r;c2w[:3,3]=origin;gt_c2w.append(c2w)
                     if radial is not None:
                         from src.panorama import perspective_rays
                         rays,_=perspective_rays(a.size,fov)
                         if metadata.get('kind')=='controlled_synthetic':
-                            from scripts.prepare_data import trace
-                            _,exact_depth=trace(origin,rays@r.T);gt_depth.append(exact_depth)
+                            from scripts.prepare_data import TRACE_GENERATORS
+                            generator=TRACE_GENERATORS[metadata.get('generator','trace')]
+                            _,exact_depth=generator(origin,rays@r.T);gt_depth.append(exact_depth)
                         else:
                             projected_range,_,_=project(radial,yaw,pitch,fov,a.size)
                             gt_depth.append(projected_range/np.linalg.norm(rays,axis=-1))

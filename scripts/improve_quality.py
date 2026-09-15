@@ -87,7 +87,8 @@ def main():
     metadata=json.loads((source/'scene.json').read_text()) if (source/'scene.json').exists() else {}
     gt_train=None;test_factory=None
     if config['panorama'] and 'panorama_origins' in metadata:
-        gt_train=np.tile(np.eye(4,dtype=np.float32),(len(es),1,1));gt_train[:,:3,:3]=rs;gt_train[:,:3,3]=np.asarray(metadata['panorama_origins'])[groups]
+        base_rs=np.asarray(metadata.get('panorama_rotations',[np.eye(3)]*len(metadata['panorama_origins'])),np.float32)
+        gt_train=np.tile(np.eye(4,dtype=np.float32),(len(es),1,1));gt_train[:,:3,:3]=base_rs[groups]@rs;gt_train[:,:3,3]=np.asarray(metadata['panorama_origins'])[groups]
     elif 'train_frames' in metadata:
         table={x['file']:x for x in metadata['train_frames']};gt_train=np.asarray([table[n]['c2w'] for n in names])
     test_metadata=metadata;test_source=source

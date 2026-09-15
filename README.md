@@ -2,6 +2,8 @@
 
 > 2026-09-15 quality update: true SH3, bounded adaptive density, high-resolution supervision, training-only BA, panorama-rig pose refinement, and frozen three-seed evaluation are available in the [quality report](reports/QUALITY_REPORT.zh-CN.md) and [deep research review](docs/QUALITY_DEEP_RESEARCH.zh-CN.md).
 
+> 2026-09-15 panorama extension: the colored analytical room now has a visually natural replacement with exact geometry, plus a real-capture ZInD heldout-position test. Protocols, metrics, limitations, and reproduction commands are in the [panorama extension report](reports/PANORAMA_EXTENSION_REPORT.zh-CN.md); machine-readable results are in [panorama_extension.json](reports/panorama_extension.json).
+
 An inference-only pipeline from perspective images or multiple 360° panoramas to confidence-filtered geometry, COLMAP, gsplat Gaussians, and a Unity keyboard/mouse viewer.
 
 ![Actual gsplat kitchen render](assets/kitchen_preview.png)
@@ -9,6 +11,12 @@ An inference-only pipeline from perspective images or multiple 360° panoramas t
 [Real kitchen gsplat flythrough](assets/gsplat_kitchen.mp4) · [Synthetic 360° gsplat flythrough](assets/gsplat_panorama.mp4) · [Measured results](reports/REPORT.md) · [Chinese execution plan](docs/EXPERIMENT_PLAN.zh-CN.md)
 
 The colored grids and radial bands in the synthetic 360° demo are intentional world-coordinate textures in the analytical ground truth, not simulated lighting. See the [ground-truth verification and artifact-control ablation](reports/ARTIFACT_CONTROL_REPORT.zh-CN.md).
+
+![Natural analytical heldout comparison](assets/quality/natural360_v2_heldout_comparison.png)
+
+![Real ZInD heldout comparison](assets/quality/zind_room09_heldout_comparison.png)
+
+The replacement natural analytical benchmark uses warm, low-contrast materials and exact depth/poses. The real ZInD test trains on panoramas 2/4/6 and evaluates only at heldout panorama 5. The quality path improves all three real heldout metrics over the equal-step SH0 baseline, although sparse-input novel-view blur remains visible.
 
 These are actual gsplat renders. Unity execution and footage remain pending because the Editor installer launch was canceled by Windows.
 
