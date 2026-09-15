@@ -1,4 +1,15 @@
-# VGGT-XR
+# 🌐 VGGT-XR
+
+[![Geometry invariants](https://github.com/BoPythonAI/VGGT-XR/actions/workflows/geometry.yml/badge.svg?branch=codex%2Fvggt-xr)](https://github.com/BoPythonAI/VGGT-XR/actions/workflows/geometry.yml)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch 2.12.1](https://img.shields.io/badge/PyTorch-2.12.1%2Bcu130-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![CUDA 13.0](https://img.shields.io/badge/CUDA-13.0-76B900?logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
+[![gsplat 1.5.3](https://img.shields.io/badge/gsplat-1.5.3-7C3AED?logo=github&logoColor=white)](https://docs.gsplat.studio/)
+[![360° Panorama](https://img.shields.io/badge/Input-360%C2%B0%20Panorama-0284C7?logo=googleearth&logoColor=white)](reports/PANORAMA_EXTENSION_REPORT.zh-CN.md)
+[![3D Gaussian Splatting](https://img.shields.io/badge/Output-3D%20Gaussian%20Splatting-9333EA?logo=threedotjs&logoColor=white)](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/)
+[![Release](https://img.shields.io/github/v/release/BoPythonAI/VGGT-XR?include_prereleases&logo=github)](https://github.com/BoPythonAI/VGGT-XR/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/BoPythonAI/VGGT-XR?style=flat&logo=github)](https://github.com/BoPythonAI/VGGT-XR/stargazers)
 
 > 2026-09-15 quality update: true SH3, bounded adaptive density, high-resolution supervision, training-only BA, panorama-rig pose refinement, and frozen three-seed evaluation are available in the [quality report](reports/QUALITY_REPORT.zh-CN.md) and [deep research review](docs/QUALITY_DEEP_RESEARCH.zh-CN.md).
 
@@ -31,13 +42,13 @@ flowchart LR
     F -. Optional export .-> H[Unity desktop viewer]
 ```
 
-## Scope
+## 🎯 Scope
 
 VGGT baseline, 360° projection, confidence filtering, Gaussian Splatting, quantitative evaluation, and a reproducible GitHub demo. The project does not retrain VGGT. On 2026-09-15 the user removed Unity runtime validation from the stop line; the existing Unity export code remains optional. Headset OpenXR integration and semantics are outside the stop line.
 
 Multiple translated panorama centers are required for meaningful multiview geometry. Faces cut from one ERP share a camera center and provide no translational parallax. VGGT confidence is an uncalibrated reliability score, not a probability.
 
-## Server setup
+## 🖥️ Server setup
 
 The execution environment uses an RTX 5090, existing PyTorch 2.12.1+cu130 and CUDA 13.0. gsplat 1.5.3 is compiled for `sm_120`; its CUDA forward and backward must pass `scripts/cuda_smoke.py`. All large files are placed on the AutoDL data disk.
 
@@ -56,7 +67,7 @@ python scripts/prepare_data.py
 
 The ranged downloader uses a mirror of the official `facebook/VGGT-1B` checkpoint and verifies the LFS SHA256 before use. The standard Hugging Face downloader remains supported. Refer to [VGGT's official code, checkpoint and license](https://github.com/facebookresearch/vggt) before using or distributing upstream materials. VGGT officially provides COLMAP export and gsplat integration; this project's projection, filtering, fixed-budget optimizer and desktop controls are separate code.
 
-## One command
+## 🚀 One command
 
 ```bash
 source scripts/environment.sh
@@ -79,7 +90,7 @@ python run.py --input data/analytic_room --panorama --projection overlap \
 
 `--filter raw|confidence|consistency`, `--confidence-quantile`, `--projection direct|cubemap|overlap`, `--constrain-poses`, `--max-views`, `--max-points`, `--steps`, and `--geometry-only` control the experiment. Default budget: 24 views, 336×336, 30k Gaussians, 1500 optimization steps. Outputs cache predictions and completed runs; use a new output directory when changing input or settings.
 
-## Experiments
+## 📊 Experiments
 
 ![Measured experiment results](assets/metrics.png)
 
@@ -95,7 +106,7 @@ The public Tiny NeRF dataset is originally 100×100; resizing does not create de
 
 See [the bounded experiment plan](docs/EXPERIMENT_PLAN.zh-CN.md), [documented adjustments](docs/ADJUSTMENTS.zh-CN.md), and the actual report in `reports/`. The early analytical-room scores are heldout development views because they were inspected while adjusting the adapter. The later ZInD pano-5 protocol freezes the split before inference and evaluates a real unseen camera position.
 
-## Optional Unity keyboard/mouse export
+## 🎮 Optional Unity keyboard/mouse export
 
 The project uses [UnityGaussianSplatting](https://github.com/aras-p/UnityGaussianSplatting) and Unity 2022.3 on Windows/DX12. The Unity project and its `Library` belong on a data drive. Run from PowerShell:
 
@@ -109,7 +120,7 @@ The project uses [UnityGaussianSplatting](https://github.com/aras-p/UnityGaussia
 
 This path is optional and is not required to reproduce or accept the current experiments. If used, launch the prepared project with `scripts/open_unity.ps1`, choose **VGGT-XR → Create Desktop Demo Scene**, and press Play. Hold RMB with WASD/QE to fly, Shift for speed, wheel to adjust speed, +/- to scale the scene, R to reset, and 1/2/3 to switch Gaussian/geometry/confidence. No Unity runtime or FPS claim is made in the reported results.
 
-## Storage and licenses
+## 💾 Storage and licenses
 
 Model/cache/environment/data/output/temporary files stay under `/root/autodl-tmp/vggt-xr`; at least 15 GiB free is enforced before each major stage. Existing server projects are untouched. Local large files stay under `D:\VGGT-XR-artifacts`. Weights, private captures, datasets, generated Unity caches and giant artifacts are excluded from Git.
 

@@ -26,3 +26,4 @@ unity/**/Assets/Scenes/
 *.csproj
 *.sln
 .DS_Store
+reports/FINAL_TECHNICAL_REPORT.zh-CN.md
