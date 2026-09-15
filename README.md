@@ -21,6 +21,15 @@ An inference-only pipeline from perspective images or multiple 360° panoramas t
 
 [Real kitchen gsplat flythrough](assets/gsplat_kitchen.mp4) · [Synthetic 360° gsplat flythrough](assets/gsplat_panorama.mp4) · [Measured results](reports/REPORT.md) · [Chinese execution plan](docs/EXPERIMENT_PLAN.zh-CN.md)
 
+## 🎬 Quality demo videos
+
+The standalone MP4 files are hosted in the [v0.3.0 release](https://github.com/BoPythonAI/VGGT-XR/releases/tag/v0.3.0). Click a preview to play or download the original render.
+
+| 🍳 Real kitchen, high-resolution + BA | 🌐 Natural analytical 360° | 🏠 Real ZInD heldout position |
+|---|---|---|
+| [![Kitchen high-resolution reconstruction](assets/kitchen_preview.png)](https://github.com/BoPythonAI/VGGT-XR/releases/download/v0.3.0/vggt-xr-kitchen-highres-ba-672.mp4) | [![Natural 360 reconstruction](assets/quality/natural360_v2_heldout_comparison.png)](https://github.com/BoPythonAI/VGGT-XR/releases/download/v0.3.0/vggt-xr-natural360-quality-336.mp4) | [![Real ZInD reconstruction](assets/quality/zind_room09_heldout_comparison.png)](https://github.com/BoPythonAI/VGGT-XR/releases/download/v0.3.0/vggt-xr-zind-real360-quality-336.mp4) |
+| [▶ 672×672 · 5 s · 14.1 MB](https://github.com/BoPythonAI/VGGT-XR/releases/download/v0.3.0/vggt-xr-kitchen-highres-ba-672.mp4) | [▶ 336×336 · 5 s · 1.0 MB](https://github.com/BoPythonAI/VGGT-XR/releases/download/v0.3.0/vggt-xr-natural360-quality-336.mp4) | [▶ 336×336 · 5 s · 1.3 MB](https://github.com/BoPythonAI/VGGT-XR/releases/download/v0.3.0/vggt-xr-zind-real360-quality-336.mp4) |
+
 The colored grids and radial bands in the synthetic 360° demo are intentional world-coordinate textures in the analytical ground truth, not simulated lighting. See the [ground-truth verification and artifact-control ablation](reports/ARTIFACT_CONTROL_REPORT.zh-CN.md).
 
 ![Natural analytical heldout comparison](assets/quality/natural360_v2_heldout_comparison.png)
