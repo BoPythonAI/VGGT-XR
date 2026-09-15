@@ -1,4 +1,4 @@
-import torch
+import pytest
 
 from src.quality_constraints import constrain_scales, progressive_sh_degree
 
@@ -16,6 +16,7 @@ def test_zero_start_preserves_original_schedule():
 
 
 def test_scale_projection_limits_size_and_anisotropy():
+    torch=pytest.importorskip('torch')
     scales=torch.log(torch.tensor([[.001,.02,2.],[.3,.3,.3]]))
     constrain_scales(scales,.1,10.)
     linear=scales.exp()
