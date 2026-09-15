@@ -17,7 +17,13 @@ def render(params, e, k, width, height, *, return_info=False, sh_degree=None,
         if sh_degree is None:sh_degree=int(round(colors.shape[1]**.5))-1
     else:
         colors=params['colors'].sigmoid();sh_degree=None
-    backgrounds=torch.zeros((len(e),3),device=e.device) if background is None else torch.as_tensor(background,device=e.device,dtype=e.dtype).expand(len(e),3)
+    # gsplat appends the depth background internally for RGB+D / RGB+ED.
+    channels=1 if render_mode in ('D','ED') else colors.shape[-1]
+    rgb_background=torch.zeros(3,device=e.device,dtype=e.dtype) if background is None else torch.as_tensor(background,device=e.device,dtype=e.dtype)
+    if channels==1:
+        backgrounds=torch.zeros((len(e),1),device=e.device,dtype=e.dtype)
+    elif channels==3:
+        backgrounds=rgb_background.expand(len(e),3)
     result=rasterization(means=params['means'],quats=torch.nn.functional.normalize(params['quats'],dim=-1),scales=params['scales'].exp(),opacities=params['opacities'].sigmoid(),colors=colors,sh_degree=sh_degree,viewmats=e,Ks=k,width=width,height=height,packed=False,near_plane=.01,far_plane=1e4,backgrounds=backgrounds,absgrad=absgrad,rasterize_mode='antialiased' if antialiased else 'classic',render_mode=render_mode)
     return result if return_info else result[0]
 

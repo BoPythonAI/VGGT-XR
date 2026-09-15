@@ -35,7 +35,9 @@ def trace(origin, rays):
     palette = np.array([[.72,.77,.82],[.54,.31,.14],[.30,.18,.10],[.30,.18,.10],[.15,.45,.62],[.45,.24,.12],[.28,.48,.28]])
     color = palette[label].copy()
     color *= (.65+.2*np.sin(xyz[:,0]*7.3+xyz[:,1]*3.1)+.12*np.cos(xyz[:,2]*9.7-xyz[:,0]*1.7))[:,None]
-    # Spatial patterns, wall panels and floor tiles provide nontrivial correspondence.
+    # Spatial RGB patterns, wall panels and floor tiles provide nontrivial
+    # correspondence. On planar walls these world-coordinate sinusoids look like
+    # colored grids/radial bands; they are benchmark texture, not illumination.
     color += .12*np.stack([np.sin(xyz[:,0]*17+xyz[:,2]*4),np.cos(xyz[:,1]*13+xyz[:,2]*6),np.sin(xyz[:,2]*15+xyz[:,1]*8)],-1)
     floor = (label==0)&(axis==1)&(xyz[:,1]>0)
     tile = ((np.floor(xyz[:,0]*2)+np.floor(xyz[:,2]*2))%2)*.14

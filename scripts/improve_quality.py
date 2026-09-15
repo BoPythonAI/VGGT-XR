@@ -22,6 +22,9 @@ def main():
     p.add_argument('--no-densify',action='store_true');p.add_argument('--pose-opt',action='store_true');p.add_argument('--antialiased',action='store_true')
     p.add_argument('--train-size',type=int);p.add_argument('--max-points',type=int);p.add_argument('--cap',type=int,default=200000)
     p.add_argument('--geometry',choices=['confidence','consistency']);p.add_argument('--ba',type=Path,help='Training-only refined camera NPZ, if geometrically validated')
+    p.add_argument('--depth-weight',type=float,default=0.);p.add_argument('--max-scale-ratio',type=float,default=2.)
+    p.add_argument('--max-anisotropy',type=float,default=1e6);p.add_argument('--scale-reg-weight',type=float,default=0.)
+    p.add_argument('--sh-start-fraction',type=float,default=0.);p.add_argument('--sh-lr-multiplier',type=float,default=1.)
     p.add_argument('--seed',type=int,default=42);p.add_argument('--test-scene',type=Path,help='Previously frozen final test images/poses; never training inputs')
     a=p.parse_args();a.base=a.base.resolve();a.output=a.output.resolve();check_storage(a.output,growth_gb=1)
     config=json.loads((a.base/'config.json').read_text());source=Path(config['input'])
@@ -47,7 +50,7 @@ def main():
         if config['panorama']:raise ValueError('Independent pinhole BA is forbidden for ERP rigs')
         cameras=np.load(a.ba);es=cameras['extrinsics'];ks=cameras['intrinsics']
     train_size=a.train_size or config['size']
-    images=pred['images'];masks=None;valid=None
+    images=pred['images'];depths=pred['depth'];depth_confidence=pred['confidence'];masks=None;valid=None
     if not config['panorama']:
         folder=source/'images' if (source/'images').exists() else source
         originals=[Image.open(folder/n).convert('RGB') for n in names]
@@ -57,6 +60,9 @@ def main():
         images=np.stack([np.asarray(ImageOps.pad(im,(train_size,train_size),method=Image.Resampling.LANCZOS,color=(255,255,255)),np.float32)/255 for im in originals])
     elif train_size!=config['size']:
         raise ValueError('Panorama training resolution changes need fresh ERP projection/inference, not upsampling')
+    if train_size!=config['size']:
+        resize=lambda a:np.stack([np.asarray(Image.fromarray(x.astype(np.float32)).resize((train_size,train_size),Image.Resampling.BILINEAR),np.float32) for x in a])
+        depths=resize(depths);depth_confidence=resize(depth_confidence)
     if config.get('mask_black_background'):
         black=pred['images'].max(-1)>.03;valid=black if valid is None else valid&black
     points=unproject(pred['depth'],es,ks)
@@ -94,7 +100,7 @@ def main():
             alignment,_=align_cameras(final_es,gt_train)
             ee,kk=test_camera_in_reconstruction(test_gt,test_k,alignment)
             return ee,kk,test_images
-    gs=train_quality(xyz,rgb,images,es,scaled_k,a.output/'gaussian',steps=a.steps,sh_degree=a.sh_degree,densify=not a.no_densify,cap=a.cap,pose_opt=a.pose_opt,groups=groups,masks=masks,antialiased=a.antialiased,test_factory=test_factory,seed=a.seed)
+    gs=train_quality(xyz,rgb,images,es,scaled_k,a.output/'gaussian',steps=a.steps,sh_degree=a.sh_degree,densify=not a.no_densify,cap=a.cap,pose_opt=a.pose_opt,groups=groups,masks=masks,antialiased=a.antialiased,test_factory=test_factory,seed=a.seed,depths=depths,depth_confidence=depth_confidence,depth_weight=a.depth_weight,max_scale_ratio=a.max_scale_ratio,max_anisotropy=a.max_anisotropy,scale_reg_weight=a.scale_reg_weight,sh_start_fraction=a.sh_start_fraction,sh_lr_multiplier=a.sh_lr_multiplier)
     cameras=np.load(a.output/'gaussian/training_cameras.npz');final_es=cameras['extrinsics'][:,:3]
     evaluation={}
     if gt_train is not None:_,evaluation['cameras']=align_cameras(final_es,gt_train)

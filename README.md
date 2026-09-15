@@ -8,6 +8,8 @@ An inference-only pipeline from perspective images or multiple 360° panoramas t
 
 [Real kitchen gsplat flythrough](assets/gsplat_kitchen.mp4) · [Synthetic 360° gsplat flythrough](assets/gsplat_panorama.mp4) · [Measured results](reports/REPORT.md) · [Chinese execution plan](docs/EXPERIMENT_PLAN.zh-CN.md)
 
+The colored grids and radial bands in the synthetic 360° demo are intentional world-coordinate textures in the analytical ground truth, not simulated lighting. See the [ground-truth verification and artifact-control ablation](reports/ARTIFACT_CONTROL_REPORT.zh-CN.md).
+
 These are actual gsplat renders. Unity execution and footage remain pending because the Editor installer launch was canceled by Windows.
 
 ```mermaid
