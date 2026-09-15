@@ -1,8 +1,10 @@
-# Unity validation gate
+# Optional Unity validation procedure
+
+As of 2026-09-15, Unity runtime validation is outside the user-approved stop line. This document is retained only for anyone who later chooses to test the optional export path. No Unity installation, build, footage, or FPS measurement is required for the current experiment.
 
 The repository contains a complete project generator and keyboard/mouse controls. Runtime validation requires a locally installed, activated Unity 2022.3 Editor with Windows build support and DX12. An existing activated editor path can be passed to `scripts/desktop_demo.ps1`. Source code generation and PowerShell syntax validation do not establish Unity compilation, rendering or FPS.
 
-Before marking the Unity item complete:
+If the optional Unity path is evaluated later:
 
 1. Generate the project on a data drive and import the exported Gaussian PLY.
 2. Run the scene in Play mode: confirm Gaussian color/orientation, RGB geometry and confidence geometry refer to the same scene.

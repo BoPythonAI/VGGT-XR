@@ -4,7 +4,7 @@
 
 > 2026-09-15 panorama extension: the colored analytical room now has a visually natural replacement with exact geometry, plus a real-capture ZInD heldout-position test. Protocols, metrics, limitations, and reproduction commands are in the [panorama extension report](reports/PANORAMA_EXTENSION_REPORT.zh-CN.md); machine-readable results are in [panorama_extension.json](reports/panorama_extension.json).
 
-An inference-only pipeline from perspective images or multiple 360° panoramas to confidence-filtered geometry, COLMAP, gsplat Gaussians, and a Unity keyboard/mouse viewer.
+An inference-only pipeline from perspective images or multiple 360° panoramas to confidence-filtered geometry, COLMAP, gsplat Gaussians, quantitative evaluation, and reproducible render artifacts. A Unity keyboard/mouse viewer is retained as an optional export target.
 
 ![Actual gsplat kitchen render](assets/kitchen_preview.png)
 
@@ -18,7 +18,7 @@ The colored grids and radial bands in the synthetic 360° demo are intentional w
 
 The replacement natural analytical benchmark uses warm, low-contrast materials and exact depth/poses. The real ZInD test trains on panoramas 2/4/6 and evaluates only at heldout panorama 5. The quality path improves all three real heldout metrics over the equal-step SH0 baseline, although sparse-input novel-view blur remains visible.
 
-These are actual gsplat renders. Unity execution and footage remain pending because the Editor installer launch was canceled by Windows.
+These are actual CUDA gsplat renders and constitute the final visual validation for the current project scope. Unity execution is intentionally excluded from the acceptance criteria.
 
 ```mermaid
 flowchart LR
@@ -27,12 +27,13 @@ flowchart LR
     C --> D[Confidence and depth consistency]
     D --> E[COLMAP and point clouds]
     E --> F[gsplat optimization]
-    F --> G[Unity desktop viewer]
+    F --> G[Metrics, video and PLY demo]
+    F -. Optional export .-> H[Unity desktop viewer]
 ```
 
 ## Scope
 
-VGGT baseline, 360° projection, confidence filtering, Gaussian Splatting, Unity desktop interaction, quantitative evaluation, and a reproducible demo. The project does not retrain VGGT. The current target is keyboard/mouse; headset OpenXR integration and semantics are outside the stop line.
+VGGT baseline, 360° projection, confidence filtering, Gaussian Splatting, quantitative evaluation, and a reproducible GitHub demo. The project does not retrain VGGT. On 2026-09-15 the user removed Unity runtime validation from the stop line; the existing Unity export code remains optional. Headset OpenXR integration and semantics are outside the stop line.
 
 Multiple translated panorama centers are required for meaningful multiview geometry. Faces cut from one ERP share a camera center and provide no translational parallax. VGGT confidence is an uncalibrated reliability score, not a probability.
 
@@ -92,9 +93,9 @@ python evaluation/report.py
 
 The public Tiny NeRF dataset is originally 100×100; resizing does not create detail. The panorama benchmark is an explicitly labelled analytical synthetic room, not Replica or real capture. Heldout images are never passed to inference or optimization. GT test cameras are transformed using a training-only Sim(3). Depth filtering reports coverage beside scale-aligned error. LPIPS uses SqueezeNet. The baseline optimizer remains fixed-budget SH0 for reproducibility. The quality path adds trained SH3, bounded adaptive density, high-resolution supervision and constrained pose refinement; its frozen-test results and limits are reported separately.
 
-See [the bounded experiment plan](docs/EXPERIMENT_PLAN.zh-CN.md), [documented adjustments](docs/ADJUSTMENTS.zh-CN.md), and the actual report in `reports/`. These are heldout development views: scores were inspected while adjusting the adapter, so they are not an independent final benchmark. Headless gsplat FPS and Unity FPS are different measurements.
+See [the bounded experiment plan](docs/EXPERIMENT_PLAN.zh-CN.md), [documented adjustments](docs/ADJUSTMENTS.zh-CN.md), and the actual report in `reports/`. The early analytical-room scores are heldout development views because they were inspected while adjusting the adapter. The later ZInD pano-5 protocol freezes the split before inference and evaluates a real unseen camera position.
 
-## Unity keyboard/mouse demo
+## Optional Unity keyboard/mouse export
 
 The project uses [UnityGaussianSplatting](https://github.com/aras-p/UnityGaussianSplatting) and Unity 2022.3 on Windows/DX12. The Unity project and its `Library` belong on a data drive. Run from PowerShell:
 
@@ -106,7 +107,7 @@ The project uses [UnityGaussianSplatting](https://github.com/aras-p/UnityGaussia
   -UnityEditor 'D:\Unity\Editor\Unity.exe' -Build
 ```
 
-Otherwise launch the prepared project using `scripts/open_unity.ps1` (redirects Package Manager caches and temporary files to D:), then choose **VGGT-XR → Create Desktop Demo Scene** and press Play. Hold RMB with WASD/QE to fly, Shift for speed, wheel to adjust speed, +/- to scale the scene, R to reset, 1/2/3 to switch Gaussian/geometry/confidence, and click geometry to inspect normalized confidence. B captures 600 frames after 60 warmup frames and writes an actual Unity benchmark JSON. Unity runtime verification is pending: the Windows installer launch was canceled, and an activated Editor is not yet available. Generated project code alone is not a measured Unity demo.
+This path is optional and is not required to reproduce or accept the current experiments. If used, launch the prepared project with `scripts/open_unity.ps1`, choose **VGGT-XR → Create Desktop Demo Scene**, and press Play. Hold RMB with WASD/QE to fly, Shift for speed, wheel to adjust speed, +/- to scale the scene, R to reset, and 1/2/3 to switch Gaussian/geometry/confidence. No Unity runtime or FPS claim is made in the reported results.
 
 ## Storage and licenses
 
