@@ -23,7 +23,8 @@ if 'overlap' in a.run.name or 'cubemap' in a.run.name:
 else:
     # Smooth orbit through actual inferred cameras (train path), not GT.
     from scipy.spatial.transform import Rotation,Slerp
-    pred=np.load(a.run/'vggt/predictions.npz');ex=pred['extrinsics'];centers=-np.einsum('nji,nj->ni',ex[:,:3,:3],ex[:,:3,3]);rs=ex[:,:3,:3].transpose(0,2,1)
+    cameras_path=a.run/'gaussian/training_cameras.npz'
+    pred=np.load(cameras_path if cameras_path.exists() else a.run/'vggt/predictions.npz');ex=pred['extrinsics'];centers=-np.einsum('nji,nj->ni',ex[:,:3,:3],ex[:,:3,3]);rs=ex[:,:3,:3].transpose(0,2,1)
     indices=np.arange(len(ex)+1);rs=np.concatenate([rs,rs[:1]],0);centers=np.concatenate([centers,centers[:1]],0)
     slerp=Slerp(indices,Rotation.from_matrix(rs))
     for t in np.linspace(0,len(ex),a.frames,endpoint=False):
@@ -32,7 +33,7 @@ else:
 with imageio.get_writer(str(a.output/'gsplat_flythrough.mp4'),fps=24,codec='libx264',quality=8,macro_block_size=1) as writer:
     with torch.no_grad():
         for i,ee in enumerate(trajectory):
-            frame=render(params,torch.as_tensor(ee,device='cuda')[None],torch.as_tensor(k,device='cuda')[None],w,h)[0].clip(0,1).cpu().numpy()
+            frame=render(params,torch.as_tensor(ee,device='cuda')[None],torch.as_tensor(k,device='cuda')[None],w,h,antialiased=camera.get('antialiased',False),background=camera.get('background'))[0].clip(0,1).cpu().numpy()
             writer.append_data((frame*255).astype(np.uint8))
             if i==0:imageio.imwrite(str(a.output/'gaussian_preview.png'),(frame*255).astype(np.uint8))
 write_json(a.output/'video.json',dict(source_run=a.run.name,renderer='gsplat CUDA, not Unity',frames=a.frames,fps=24))

@@ -1,5 +1,7 @@
 # VGGT-XR
 
+> 2026-09-15 quality update: true SH3, bounded adaptive density, high-resolution supervision, training-only BA, panorama-rig pose refinement, and frozen three-seed evaluation are available in the [quality report](reports/QUALITY_REPORT.zh-CN.md) and [deep research review](docs/QUALITY_DEEP_RESEARCH.zh-CN.md).
+
 An inference-only pipeline from perspective images or multiple 360° panoramas to confidence-filtered geometry, COLMAP, gsplat Gaussians, and a Unity keyboard/mouse viewer.
 
 ![Actual gsplat kitchen render](assets/kitchen_preview.png)
@@ -54,7 +56,7 @@ python run.py --input data/analytic_room --panorama \
 python run.py --input data/tiny_nerf --filter confidence --output outputs/my_lego
 ```
 
-Outputs contain `images/`, `vggt/`, `geometry/`, `sparse/0/`, `gaussian/`, and JSON summaries. `gaussian/scene.ply` uses standard 3DGS fields; higher SH coefficients are zero for the SH0 optimizer. Point cloud and confidence PLYs are separate diagnostic layers.
+Outputs contain `images/`, `vggt/`, `geometry/`, `sparse/0/`, `gaussian/`, and JSON summaries. `gaussian/scene.ply` uses standard 3DGS fields; the baseline keeps higher coefficients at zero, while `scripts/improve_quality.py` exports trained SH coefficients. Point cloud and confidence PLYs are separate diagnostic layers.
 
 For complete polar coverage and the tested anchor configuration:
 
@@ -78,7 +80,7 @@ python scripts/run_experiments.py --steps 1500
 python evaluation/report.py
 ```
 
-The public Tiny NeRF dataset is originally 100×100; resizing does not create detail. The panorama benchmark is an explicitly labelled analytical synthetic room, not Replica or real capture. Heldout images are never passed to inference or optimization. GT test cameras are transformed using a training-only Sim(3). Depth filtering reports coverage beside scale-aligned error. LPIPS uses SqueezeNet. The Gaussian optimizer uses a fixed number of SH0 splats without densification, providing a reproducible initialization ablation rather than a full 3DGS quality benchmark.
+The public Tiny NeRF dataset is originally 100×100; resizing does not create detail. The panorama benchmark is an explicitly labelled analytical synthetic room, not Replica or real capture. Heldout images are never passed to inference or optimization. GT test cameras are transformed using a training-only Sim(3). Depth filtering reports coverage beside scale-aligned error. LPIPS uses SqueezeNet. The baseline optimizer remains fixed-budget SH0 for reproducibility. The quality path adds trained SH3, bounded adaptive density, high-resolution supervision and constrained pose refinement; its frozen-test results and limits are reported separately.
 
 See [the bounded experiment plan](docs/EXPERIMENT_PLAN.zh-CN.md), [documented adjustments](docs/ADJUSTMENTS.zh-CN.md), and the actual report in `reports/`. These are heldout development views: scores were inspected while adjusting the adapter, so they are not an independent final benchmark. Headless gsplat FPS and Unity FPS are different measurements.
 

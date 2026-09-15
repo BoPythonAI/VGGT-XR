@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "quality_runs": [
+    "kitchen_highres",
+    "kitchen_highres_ba",
+    "nerf_legacy6000",
+    "nerf_sh3_dense",
+    "nerf_sh3_dense_pose",
+    "nerf_sh3_fixed",
+    "nerf_sh3_fixed_seed43",
+    "nerf_sh3_fixed_seed44",
+    "overlap_legacy6000",
+    "overlap_sh3_dense",
+    "overlap_sh3_dense_pose",
+    "overlap_sh3_dense_pose_seed43",
+    "overlap_sh3_dense_pose_seed44",
+    "overlap_sh3_fixed",
+    "smoke"
+  ],
+  "checks": [
+    "finite checkpoints",
+    "hard Gaussian caps",
+    "nonzero SH",
+    "finite cameras",
+    "panorama shared centers",
+    "frozen test hashes",
+    "three complete seeds"
+  ]
+}

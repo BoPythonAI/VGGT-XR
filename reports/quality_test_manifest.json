@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-15",
+  "files": {
+    "analytic_room/scene.json": "82a9dca687be39041e66d84130b40ee55b414a334d6f1ce3d685e306c6884e3d",
+    "analytic_room/test/center_0_view_00.png": "6b8a9dfb3aa7243ca26cf6014c96778173187687dbac6ac209ddc5c5718ad919",
+    "analytic_room/test/center_0_view_01.png": "5d80b03227611d9cc31892f87d7275d98cc5ef2252e7dc5e44620043439b59ec",
+    "analytic_room/test/center_0_view_02.png": "fdaca4bacff411a1e95a5d11caa880dea9a9abfbccd837f529c8a12da7c5e38a",
+    "analytic_room/test/center_0_view_03.png": "1e09a8820140f7619b3a8032b60370d20eb29e3f826a6486891b58446add1eed",
+    "analytic_room/test/center_0_view_04.png": "50a4877d7ccea4cce7288eb5c29934a480d09d92c4074d3a593e427da3e9d1e2",
+    "analytic_room/test/center_0_view_05.png": "15df50629ac23c06b218cf42be1c0e59d38644d9a074b05c10d893c20d667cfb",
+    "analytic_room/test/center_0_view_06.png": "237b17adaf4e23271db9708f99831245c0e88c84db4508fcf8df000f60649735",
+    "analytic_room/test/center_0_view_07.png": "e68d97e54b709e58bba0e06e9374b46fd9dc6a35354a835f6d7287716208432b",
+    "analytic_room/test/center_0_view_08.png": "20bf1b3704febe52b3ec291445113b7fa571b216b5f8e84d3ed3cfcf280f8d67",
+    "analytic_room/test/center_0_view_09.png": "127f7f3f71c5313c8c30d7d9a093c027196fdec856ba05d99cdb8f9a46588a0b",
+    "analytic_room/test/center_1_view_00.png": "d4a98dac6c9d9c8cf492169681cdc98fbc1d3fb43a821167b7342cdf55909da1",
+    "analytic_room/test/center_1_view_01.png": "fd169da987ac21122bbbd1fb695eb82125932e5d21dbd9c30c9f7c0cae12dbca",
+    "analytic_room/test/center_1_view_02.png": "7f45daa971560d5f933837bc7a47060f96e67bcf9f501d80a986fc7720961f57",
+    "analytic_room/test/center_1_view_03.png": "c2e77873d6b6948eb0afa61d248517a59b8318e5dcf9ee1cddeff5fbd3d622de",
+    "analytic_room/test/center_1_view_04.png": "40e0b2e741c4414df6f25b62c5d2a336150f9e8447de0316f185e9b74191017b",
+    "analytic_room/test/center_1_view_05.png": "4c993496375076d22ebbf300b60ed8843b1271fdfda755741b49d76b03c4468a",
+    "analytic_room/test/center_1_view_06.png": "8aa6117559ada90f4a41249173d3d653bc365d3b8983b291b60708bbdf9fcbd0",
+    "analytic_room/test/center_1_view_07.png": "504ab785a8637d17907496613d7c4d169a76b2bf67428e681efee10f0a70eac1",
+    "analytic_room/test/center_1_view_08.png": "9e25dd0593bfd33877f686b0c223d149917714ec884c7685b1797cd716930331",
+    "analytic_room/test/center_1_view_09.png": "49a2ce3a4bf7758d1d96d7168cad3e6d141c9d66b629108386f8b41c9c72b19e",
+    "analytic_room/test/center_2_view_00.png": "d9238c2580860015f026df7a009172941a70c67e8a1ac94524a3e120d389aaff",
+    "analytic_room/test/center_2_view_01.png": "cf47c63f4c3356ea23de18cf9b52a264e770212b8d5a01ec4104bc99a91d48fe",
+    "analytic_room/test/center_2_view_02.png": "0744af85dfffc28cb3af6be428b310fc9af6e56cebf4427c7e1fb8cf5a4ed2e9",
+    "analytic_room/test/center_2_view_03.png": "02039dd31b42347d0dd0c7c2f1a33411613b8142086e357efc67c76b451d8e68",
+    "analytic_room/test/center_2_view_04.png": "459d32553f74129244bccdc1de062db1174827811ea629dd5440de8f09b04f91",
+    "analytic_room/test/center_2_view_05.png": "35958ac6dda651844a16d791ac6916f58035c62305615670804a8db8b7691419",
+    "analytic_room/test/center_2_view_06.png": "ec3ba356c56057ed606db929a0ba68f69ab491a057b556200dc2eb677eaba4d9",
+    "analytic_room/test/center_2_view_07.png": "00e28da1bc7c50770ecc2d33d7f9bf336814f1cf736afbf00cbd15b1c81cebad",
+    "analytic_room/test/center_2_view_08.png": "a7d041dd219bf75e7ce4bfe733e6ee9e4b92fdb8fa36d615b07454793bff68da",
+    "analytic_room/test/center_2_view_09.png": "bbc11f5c314b04de732ffcf399a2f1a46cf3cfc0e599f0aeaefad544bb69b40e",
+    "tiny_nerf/scene.json": "715e76d7607630bef99869c9ca0752c7f22a371f2ad1f242931a9b0043e6fe24",
+    "tiny_nerf/test/005.png": "77aacc8c4254d1bb1d205810c159b7ebdaea8fbc843fe3eb7bf5f97ee3dddcd5",
+    "tiny_nerf/test/015.png": "863815a85b17e9021dd8e374780659ce611df0b0032a50832ca1084229642ecd",
+    "tiny_nerf/test/025.png": "63c5680fe9f74689967d884e365756d182baa71c699438c97ce6a898f5e7ad45",
+    "tiny_nerf/test/035.png": "79b25fc814cabd29de87cc4fc68a6e1227ac7241f58da5a1e27042dbfd3f6ebd",
+    "tiny_nerf/test/055.png": "4b8c2fd4134a087284375564d04444124ab105fc6ddc4375b3c6c817d2c10802",
+    "tiny_nerf/test/065.png": "e01dea2c2f29611b1eeeacdf63136639ec024d1ec2a41664881dd38e93910973",
+    "tiny_nerf/test/075.png": "65cf7aed066bd94b5b3ce1d1410321d335c18290c9dc40279565308bf2360a13",
+    "tiny_nerf/test/085.png": "1dd31ab5e842db8b5cacdc4a347a72269bdcc03f21b30f001fcf03fb9e372b0e"
+  },
+  "tiny_test_indices": [
+    5,
+    15,
+    25,
+    35,
+    55,
+    65,
+    75,
+    85
+  ],
+  "panorama_centers": [
+    [
+      -0.3,
+      -0.05,
+      -0.1
+    ],
+    [
+      0.1,
+      0.1,
+      0.45
+    ],
+    [
+      -0.4,
+      0.05,
+      0.6
+    ]
+  ],
+  "selection_protocol": "Freeze before evaluating final test; select configuration using old dev set only; report all frozen positions"
+}

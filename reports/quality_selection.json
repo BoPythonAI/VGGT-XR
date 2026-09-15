@@ -1,0 +1,333 @@
+{
+  "policy": "docs/QUALITY_SELECTION_POLICY.zh-CN.md",
+  "selected": {
+    "nerf": "sh3_fixed",
+    "overlap": "sh3_dense_pose"
+  },
+  "development": {
+    "nerf_sh3_fixed": {
+      "count": 5,
+      "psnr_mean": 12.41010799407959,
+      "ssim_mean": 0.6466434240341187,
+      "per_view": [
+        {
+          "view": 0,
+          "psnr": 14.115049362182617,
+          "ssim": 0.6688122153282166,
+          "lpips_squeeze": 0.30511894822120667
+        },
+        {
+          "view": 1,
+          "psnr": 11.628841400146484,
+          "ssim": 0.6354342699050903,
+          "lpips_squeeze": 0.32695603370666504
+        },
+        {
+          "view": 2,
+          "psnr": 13.363251686096191,
+          "ssim": 0.6554660797119141,
+          "lpips_squeeze": 0.3000240921974182
+        },
+        {
+          "view": 3,
+          "psnr": 10.131767272949219,
+          "ssim": 0.6602687835693359,
+          "lpips_squeeze": 0.3441815972328186
+        },
+        {
+          "view": 4,
+          "psnr": 12.811630249023438,
+          "ssim": 0.6132357716560364,
+          "lpips_squeeze": 0.3378802239894867
+        }
+      ],
+      "lpips_squeeze_mean": 0.32283217906951905,
+      "pose_protocol": "GT cameras transformed by training-only Sim(3), no test RGB in inference/optimization; development set"
+    },
+    "nerf_sh3_dense": {
+      "count": 5,
+      "psnr_mean": 12.270025062561036,
+      "ssim_mean": 0.6461180567741394,
+      "per_view": [
+        {
+          "view": 0,
+          "psnr": 13.817595481872559,
+          "ssim": 0.6685875058174133,
+          "lpips_squeeze": 0.3021060824394226
+        },
+        {
+          "view": 1,
+          "psnr": 11.551104545593262,
+          "ssim": 0.6335563659667969,
+          "lpips_squeeze": 0.3223702907562256
+        },
+        {
+          "view": 2,
+          "psnr": 13.220520973205566,
+          "ssim": 0.6509057879447937,
+          "lpips_squeeze": 0.2978968620300293
+        },
+        {
+          "view": 3,
+          "psnr": 9.89259147644043,
+          "ssim": 0.6568969488143921,
+          "lpips_squeeze": 0.3397339880466461
+        },
+        {
+          "view": 4,
+          "psnr": 12.86831283569336,
+          "ssim": 0.620643675327301,
+          "lpips_squeeze": 0.32814884185791016
+        }
+      ],
+      "lpips_squeeze_mean": 0.3180512130260468,
+      "pose_protocol": "GT cameras transformed by training-only Sim(3), no test RGB in inference/optimization; development set"
+    },
+    "nerf_sh3_dense_pose": {
+      "count": 5,
+      "psnr_mean": 12.298438262939452,
+      "ssim_mean": 0.6443080306053162,
+      "per_view": [
+        {
+          "view": 0,
+          "psnr": 13.941651344299316,
+          "ssim": 0.6633403301239014,
+          "lpips_squeeze": 0.30528444051742554
+        },
+        {
+          "view": 1,
+          "psnr": 11.559165954589844,
+          "ssim": 0.6322416067123413,
+          "lpips_squeeze": 0.31990206241607666
+        },
+        {
+          "view": 2,
+          "psnr": 13.294964790344238,
+          "ssim": 0.6516422629356384,
+          "lpips_squeeze": 0.2939310669898987
+        },
+        {
+          "view": 3,
+          "psnr": 9.806320190429688,
+          "ssim": 0.6584065556526184,
+          "lpips_squeeze": 0.3445695638656616
+        },
+        {
+          "view": 4,
+          "psnr": 12.89008903503418,
+          "ssim": 0.6159093976020813,
+          "lpips_squeeze": 0.3259148895740509
+        }
+      ],
+      "lpips_squeeze_mean": 0.31792040467262267,
+      "pose_protocol": "GT cameras transformed by training-only Sim(3), no test RGB in inference/optimization; development set"
+    },
+    "overlap_sh3_fixed": {
+      "count": 10,
+      "psnr_mean": 14.467548847198486,
+      "ssim_mean": 0.34888463020324706,
+      "per_view": [
+        {
+          "view": 0,
+          "psnr": 13.407649993896484,
+          "ssim": 0.2638925313949585,
+          "lpips_squeeze": 0.5229340195655823
+        },
+        {
+          "view": 1,
+          "psnr": 13.981353759765625,
+          "ssim": 0.3262992203235626,
+          "lpips_squeeze": 0.5055006146430969
+        },
+        {
+          "view": 2,
+          "psnr": 14.931936264038086,
+          "ssim": 0.37286752462387085,
+          "lpips_squeeze": 0.44365134835243225
+        },
+        {
+          "view": 3,
+          "psnr": 14.091376304626465,
+          "ssim": 0.34093865752220154,
+          "lpips_squeeze": 0.46851205825805664
+        },
+        {
+          "view": 4,
+          "psnr": 13.506442070007324,
+          "ssim": 0.2829870879650116,
+          "lpips_squeeze": 0.4559355080127716
+        },
+        {
+          "view": 5,
+          "psnr": 14.281318664550781,
+          "ssim": 0.3213399648666382,
+          "lpips_squeeze": 0.44816210865974426
+        },
+        {
+          "view": 6,
+          "psnr": 13.820972442626953,
+          "ssim": 0.27547869086265564,
+          "lpips_squeeze": 0.4675801396369934
+        },
+        {
+          "view": 7,
+          "psnr": 13.6879301071167,
+          "ssim": 0.30251237750053406,
+          "lpips_squeeze": 0.49221524596214294
+        },
+        {
+          "view": 8,
+          "psnr": 18.672191619873047,
+          "ssim": 0.4491451680660248,
+          "lpips_squeeze": 0.4764976501464844
+        },
+        {
+          "view": 9,
+          "psnr": 14.294317245483398,
+          "ssim": 0.5533850789070129,
+          "lpips_squeeze": 0.3599136769771576
+        }
+      ],
+      "lpips_squeeze_mean": 0.46409023702144625,
+      "pose_protocol": "GT cameras transformed by training-only Sim(3), no test RGB in inference/optimization; development set"
+    },
+    "overlap_sh3_dense": {
+      "count": 10,
+      "psnr_mean": 14.610247135162354,
+      "ssim_mean": 0.3485457330942154,
+      "per_view": [
+        {
+          "view": 0,
+          "psnr": 13.4281005859375,
+          "ssim": 0.2693939507007599,
+          "lpips_squeeze": 0.5140044093132019
+        },
+        {
+          "view": 1,
+          "psnr": 13.840686798095703,
+          "ssim": 0.33233875036239624,
+          "lpips_squeeze": 0.5038889646530151
+        },
+        {
+          "view": 2,
+          "psnr": 15.075530052185059,
+          "ssim": 0.3783992826938629,
+          "lpips_squeeze": 0.4595199227333069
+        },
+        {
+          "view": 3,
+          "psnr": 14.042600631713867,
+          "ssim": 0.33472806215286255,
+          "lpips_squeeze": 0.47672271728515625
+        },
+        {
+          "view": 4,
+          "psnr": 13.546391487121582,
+          "ssim": 0.2626432776451111,
+          "lpips_squeeze": 0.4435916244983673
+        },
+        {
+          "view": 5,
+          "psnr": 14.435827255249023,
+          "ssim": 0.3090498745441437,
+          "lpips_squeeze": 0.4212554097175598
+        },
+        {
+          "view": 6,
+          "psnr": 14.064431190490723,
+          "ssim": 0.2829141914844513,
+          "lpips_squeeze": 0.4576927125453949
+        },
+        {
+          "view": 7,
+          "psnr": 14.045075416564941,
+          "ssim": 0.3149697482585907,
+          "lpips_squeeze": 0.48387008905410767
+        },
+        {
+          "view": 8,
+          "psnr": 18.899333953857422,
+          "ssim": 0.45255452394485474,
+          "lpips_squeeze": 0.4395318329334259
+        },
+        {
+          "view": 9,
+          "psnr": 14.724493980407715,
+          "ssim": 0.5484656691551208,
+          "lpips_squeeze": 0.41290703415870667
+        }
+      ],
+      "lpips_squeeze_mean": 0.4612984716892242,
+      "pose_protocol": "GT cameras transformed by training-only Sim(3), no test RGB in inference/optimization; development set"
+    },
+    "overlap_sh3_dense_pose": {
+      "count": 10,
+      "psnr_mean": 14.728652954101562,
+      "ssim_mean": 0.3436757028102875,
+      "per_view": [
+        {
+          "view": 0,
+          "psnr": 13.573713302612305,
+          "ssim": 0.25744152069091797,
+          "lpips_squeeze": 0.5024474263191223
+        },
+        {
+          "view": 1,
+          "psnr": 14.10152816772461,
+          "ssim": 0.32282888889312744,
+          "lpips_squeeze": 0.487830251455307
+        },
+        {
+          "view": 2,
+          "psnr": 15.148090362548828,
+          "ssim": 0.3639328181743622,
+          "lpips_squeeze": 0.4417862296104431
+        },
+        {
+          "view": 3,
+          "psnr": 13.97006893157959,
+          "ssim": 0.3168080449104309,
+          "lpips_squeeze": 0.45720353722572327
+        },
+        {
+          "view": 4,
+          "psnr": 13.510763168334961,
+          "ssim": 0.26136744022369385,
+          "lpips_squeeze": 0.43213778734207153
+        },
+        {
+          "view": 5,
+          "psnr": 14.471210479736328,
+          "ssim": 0.30491799116134644,
+          "lpips_squeeze": 0.41823145747184753
+        },
+        {
+          "view": 6,
+          "psnr": 14.290159225463867,
+          "ssim": 0.2922707796096802,
+          "lpips_squeeze": 0.4566270411014557
+        },
+        {
+          "view": 7,
+          "psnr": 14.299232482910156,
+          "ssim": 0.3183118999004364,
+          "lpips_squeeze": 0.47126078605651855
+        },
+        {
+          "view": 8,
+          "psnr": 19.240272521972656,
+          "ssim": 0.4480217695236206,
+          "lpips_squeeze": 0.4340983033180237
+        },
+        {
+          "view": 9,
+          "psnr": 14.681490898132324,
+          "ssim": 0.5508558750152588,
+          "lpips_squeeze": 0.41250139474868774
+        }
+      ],
+      "lpips_squeeze_mean": 0.45141242146492006,
+      "pose_protocol": "GT cameras transformed by training-only Sim(3), no test RGB in inference/optimization; development set"
+    }
+  }
+}

@@ -31,8 +31,15 @@ def export_gaussians(path, params):
     fields = ['x','y','z','nx','ny','nz','f_dc_0','f_dc_1','f_dc_2'] + [f'f_rest_{i}' for i in range(45)] + ['opacity','scale_0','scale_1','scale_2','rot_0','rot_1','rot_2','rot_3']
     data = np.zeros(len(p['means']), dtype=[(k,'<f4') for k in fields])
     for i, k in enumerate(['x','y','z']): data[k] = p['means'][:,i]
-    color = 1/(1+np.exp(-p['colors'].clip(-50,50)))
-    sh0 = (color-.5)/.28209479177387814
+    if 'sh0' in p:
+        sh0=p['sh0'][:,0]
+        # Standard 3DGS PLY stores all non-DC coefficients of each RGB channel
+        # together, unlike gsplat's [N, coefficient, RGB] tensor layout.
+        rest=sh_to_ply_rest(p['shN'])
+        for i in range(45):data[f'f_rest_{i}']=rest[:,i]
+    else:
+        color = 1/(1+np.exp(-p['colors'].clip(-50,50)))
+        sh0 = (color-.5)/.28209479177387814
     for i in range(3):
         data[f'f_dc_{i}'] = sh0[:,i]
         data[f'scale_{i}'] = p['scales'][:,i]
@@ -40,6 +47,16 @@ def export_gaussians(path, params):
     for i in range(4): data[f'rot_{i}'] = q[:,i]
     data['opacity'] = p['opacities']
     _ply(path, data)
+
+
+def sh_to_ply_rest(sh):
+    """Pack degree <=3 SH coefficients into the channel-major PLY convention."""
+    sh=np.asarray(sh)
+    if sh.ndim!=3 or sh.shape[2]!=3 or sh.shape[1]>15:
+        raise ValueError('Expected [N, up to 15 non-DC coefficients, 3]')
+    padded=np.zeros((len(sh),15,3),np.float32)
+    padded[:,:sh.shape[1]]=sh
+    return padded.transpose(0,2,1).reshape(len(sh),45)
 
 
 def export_colmap(directory, names, extrinsics, intrinsics, xyz, rgb):

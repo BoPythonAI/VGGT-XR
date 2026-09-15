@@ -9,8 +9,17 @@ from src.export import export_gaussians
 from src.storage import check_storage,write_json
 
 
-def render(params, e, k, width, height):
-    return rasterization(means=params['means'],quats=torch.nn.functional.normalize(params['quats'],dim=-1),scales=params['scales'].exp(),opacities=params['opacities'].sigmoid(),colors=params['colors'].sigmoid(),viewmats=e, Ks=k,width=width,height=height,packed=False,near_plane=.01,far_plane=1e4,backgrounds=torch.zeros((len(e),3),device='cuda'))[0]
+def render(params, e, k, width, height, *, return_info=False, sh_degree=None,
+           absgrad=False, antialiased=False, background=None, render_mode='RGB'):
+    """Render legacy RGB checkpoints or standard SH checkpoints with the same API."""
+    if 'sh0' in params:
+        colors=torch.cat([params['sh0'],params['shN']],dim=1)
+        if sh_degree is None:sh_degree=int(round(colors.shape[1]**.5))-1
+    else:
+        colors=params['colors'].sigmoid();sh_degree=None
+    backgrounds=torch.zeros((len(e),3),device=e.device) if background is None else torch.as_tensor(background,device=e.device,dtype=e.dtype).expand(len(e),3)
+    result=rasterization(means=params['means'],quats=torch.nn.functional.normalize(params['quats'],dim=-1),scales=params['scales'].exp(),opacities=params['opacities'].sigmoid(),colors=colors,sh_degree=sh_degree,viewmats=e,Ks=k,width=width,height=height,packed=False,near_plane=.01,far_plane=1e4,backgrounds=backgrounds,absgrad=absgrad,rasterize_mode='antialiased' if antialiased else 'classic',render_mode=render_mode)
+    return result if return_info else result[0]
 
 
 def train(xyz,rgb,scales,train_images,extrinsics,intrinsics,output,steps=1500,test=None,seed=42):

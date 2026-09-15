@@ -1,0 +1,234 @@
+[
+  {
+    "name": "nerf_legacy6000",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "run.py",
+      "--input",
+      "data/tiny_nerf",
+      "--projection",
+      "overlap",
+      "--filter",
+      "confidence",
+      "--pose-fusion",
+      "mean",
+      "--mask-black-background",
+      "--confidence-quantile",
+      "0.35",
+      "--size",
+      "336",
+      "--max-views",
+      "24",
+      "--max-points",
+      "30000",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/nerf_legacy6000",
+      "--steps",
+      "6000"
+    ],
+    "exit_code": 0,
+    "seconds": 48.676565170288086,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_nerf_legacy6000.log"
+  },
+  {
+    "name": "nerf_sh3_fixed",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/improve_quality.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/nerf_confidence_masked",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/nerf_sh3_fixed",
+      "--steps",
+      "6000",
+      "--cap",
+      "120000",
+      "--no-densify"
+    ],
+    "exit_code": 0,
+    "seconds": 69.13168787956238,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_nerf_sh3_fixed.log"
+  },
+  {
+    "name": "nerf_sh3_dense",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/improve_quality.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/nerf_confidence_masked",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/nerf_sh3_dense",
+      "--steps",
+      "6000",
+      "--cap",
+      "120000"
+    ],
+    "exit_code": 0,
+    "seconds": 60.25904703140259,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_nerf_sh3_dense.log"
+  },
+  {
+    "name": "nerf_sh3_dense_pose",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/improve_quality.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/nerf_confidence_masked",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/nerf_sh3_dense_pose",
+      "--steps",
+      "6000",
+      "--cap",
+      "120000",
+      "--pose-opt"
+    ],
+    "exit_code": 0,
+    "seconds": 109.37138867378235,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_nerf_sh3_dense_pose.log"
+  },
+  {
+    "name": "overlap_legacy6000",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "run.py",
+      "--input",
+      "data/analytic_room",
+      "--panorama",
+      "--projection",
+      "overlap",
+      "--constrain-poses",
+      "--filter",
+      "confidence",
+      "--include-poles",
+      "--pose-fusion",
+      "anchor",
+      "--known-intrinsics",
+      "--confidence-quantile",
+      "0.35",
+      "--size",
+      "336",
+      "--max-views",
+      "32",
+      "--max-points",
+      "30000",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/overlap_legacy6000",
+      "--steps",
+      "6000"
+    ],
+    "exit_code": 0,
+    "seconds": 67.49278211593628,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_overlap_legacy6000.log"
+  },
+  {
+    "name": "overlap_sh3_fixed",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/improve_quality.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/overlap_anchor",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/overlap_sh3_fixed",
+      "--steps",
+      "6000",
+      "--cap",
+      "120000",
+      "--no-densify"
+    ],
+    "exit_code": 0,
+    "seconds": 59.018455266952515,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_overlap_sh3_fixed.log"
+  },
+  {
+    "name": "overlap_sh3_dense",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/improve_quality.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/overlap_anchor",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/overlap_sh3_dense",
+      "--steps",
+      "6000",
+      "--cap",
+      "120000"
+    ],
+    "exit_code": 0,
+    "seconds": 73.60846185684204,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_overlap_sh3_dense.log"
+  },
+  {
+    "name": "overlap_sh3_dense_pose",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/improve_quality.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/overlap_anchor",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/overlap_sh3_dense_pose",
+      "--steps",
+      "6000",
+      "--cap",
+      "120000",
+      "--pose-opt"
+    ],
+    "exit_code": 0,
+    "seconds": 114.06021285057068,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_overlap_sh3_dense_pose.log"
+  },
+  {
+    "name": "kitchen518_base",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "run.py",
+      "--input",
+      "data/vggt_kitchen",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/kitchen518_base",
+      "--size",
+      "518",
+      "--max-points",
+      "60000",
+      "--steps",
+      "3000",
+      "--geometry-only"
+    ],
+    "exit_code": 0,
+    "seconds": 28.546724319458008,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_kitchen518_base.log"
+  },
+  {
+    "name": "kitchen518_ba",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/refine_geometry.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/kitchen518_base",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/kitchen518_ba"
+    ],
+    "exit_code": 1,
+    "seconds": 3.7388460636138916,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_kitchen518_ba.log"
+  },
+  {
+    "name": "kitchen_highres",
+    "command": [
+      "/root/autodl-tmp/vggt-xr/env/bin/python",
+      "scripts/improve_quality.py",
+      "--base",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/kitchen518_base",
+      "--output",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/kitchen_highres",
+      "--steps",
+      "12000",
+      "--train-size",
+      "672",
+      "--cap",
+      "200000"
+    ],
+    "exit_code": 0,
+    "seconds": 137.67619681358337,
+    "log": "/root/autodl-tmp/vggt-xr/logs/quality_kitchen_highres.log"
+  }
+]

@@ -1,0 +1,92 @@
+{
+  "nerf": {
+    "variant": "sh3_fixed",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "runs": [
+      "/root/autodl-tmp/vggt-xr/outputs/quality/nerf_sh3_fixed",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/nerf_sh3_fixed_seed43",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/nerf_sh3_fixed_seed44"
+    ],
+    "per_seed": [
+      {
+        "psnr_mean": 13.284789681434631,
+        "ssim_mean": 0.6572209149599075,
+        "lpips_squeeze_mean": 0.3151140920817852
+      },
+      {
+        "psnr_mean": 13.267133831977844,
+        "ssim_mean": 0.6557907611131668,
+        "lpips_squeeze_mean": 0.31459303572773933
+      },
+      {
+        "psnr_mean": 13.301163911819458,
+        "ssim_mean": 0.6579660326242447,
+        "lpips_squeeze_mean": 0.31326326355338097
+      }
+    ],
+    "mean": {
+      "psnr_mean": 13.28436247507731,
+      "ssim_mean": 0.656992569565773,
+      "lpips_squeeze_mean": 0.31432346378763515
+    },
+    "std_sample": {
+      "psnr_mean": 0.017019061738546372,
+      "ssim_mean": 0.0011054672093705898,
+      "lpips_squeeze_mean": 0.0009544073205698867
+    },
+    "legacy_seed42": {
+      "psnr_mean": 13.122888922691345,
+      "ssim_mean": 0.6563908979296684,
+      "lpips_squeeze_mean": 0.3163021244108677
+    }
+  },
+  "overlap": {
+    "variant": "sh3_dense_pose",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "runs": [
+      "/root/autodl-tmp/vggt-xr/outputs/quality/overlap_sh3_dense_pose",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/overlap_sh3_dense_pose_seed43",
+      "/root/autodl-tmp/vggt-xr/outputs/quality/overlap_sh3_dense_pose_seed44"
+    ],
+    "per_seed": [
+      {
+        "psnr_mean": 14.320349216461182,
+        "ssim_mean": 0.3278115391731262,
+        "lpips_squeeze_mean": 0.4591743489106496
+      },
+      {
+        "psnr_mean": 14.352680524190268,
+        "ssim_mean": 0.3368570223450661,
+        "lpips_squeeze_mean": 0.460929066936175
+      },
+      {
+        "psnr_mean": 14.355230108896892,
+        "ssim_mean": 0.33343298931916554,
+        "lpips_squeeze_mean": 0.46325648625691734
+      }
+    ],
+    "mean": {
+      "psnr_mean": 14.34275328318278,
+      "ssim_mean": 0.33270051694578595,
+      "lpips_squeeze_mean": 0.461119967367914
+    },
+    "std_sample": {
+      "psnr_mean": 0.019444324359397292,
+      "ssim_mean": 0.004567009775201395,
+      "lpips_squeeze_mean": 0.0020477532955844595
+    },
+    "legacy_seed42": {
+      "psnr_mean": 8.616821543375652,
+      "ssim_mean": 0.18617987439113978,
+      "lpips_squeeze_mean": 0.7927856723467509
+    }
+  }
+}
